@@ -38,6 +38,7 @@
   <div class="topbar">
     <div><h2>Practice Solutions</h2></div>
     <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+    <button class="menu-btn" id="menu-btn" style="margin-left:10px; background:var(--surface2); color:var(--text); border:1px solid var(--border); padding:0.55rem 1rem; border-radius:99px; font-weight:600; cursor:pointer; display:none;">☰ Menu</button>
   </div>
   <div class="page-content">
 
@@ -49,11 +50,11 @@
     <div class="section-label" style="margin-top:2rem; font-size:1.2rem; color:var(--accent);">CHAPTER 1: MATRICES</div>
 
     <div class="qa-block">
-        <div class="qa-header"><h4>Q1. Find RREF and Rank of: (i) $\begin{pmatrix} 2 & 1 & 1 \\ 4 & 2 & 2 \\ 2 & 1 & 1 \end{pmatrix}$, (ii) $\begin{pmatrix} 1 & 2 & 1 \\ 2 & 4 & 2 \\ 3 & 6 & 3 \end{pmatrix}$, (iii) $\begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \end{pmatrix}$</h4><span class="tag tag-blue">RREF & Rank</span></div>
+        <div class="qa-header"><h4>Q1. Find RREF and Rank of: (i) \[\begin{pmatrix} 2 & 1 & 1 \\ 4 & 2 & 2 \\ 2 & 1 & 1 \end{pmatrix}\], (ii) \[\begin{pmatrix} 1 & 2 & 1 \\ 2 & 4 & 2 \\ 3 & 6 & 3 \end{pmatrix}\], (iii) \[\begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \end{pmatrix}\]</h4><span class="tag tag-blue">RREF & Rank</span></div>
         <div class="qa-body">
-            <p><strong>(i)</strong> $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - R_1$. Matrix becomes $\begin{pmatrix} 2 & 1 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$. $R_1 \to R_1/2$: $\begin{pmatrix} 1 & 1/2 & 1/2 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$ (RREF). Rank = 1.</p>
-            <p><strong>(ii)</strong> $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - 3R_1$. Matrix becomes $\begin{pmatrix} 1 & 2 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$ (RREF). Rank = 1.</p>
-            <p><strong>(iii)</strong> $R_2 \to R_2 - 2R_1$. Matrix becomes $\begin{pmatrix} 1 & 2 & 3 \\ 0 & 0 & 0 \end{pmatrix}$ (RREF). Rank = 1.</p>
+            <p><strong>(i)</strong> $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - R_1$. Matrix becomes \[\begin{pmatrix} 2 & 1 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}\]. $R_1 \to R_1/2$: \[\begin{pmatrix} 1 & 1/2 & 1/2 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}\] (RREF). Rank = 1.</p>
+            <p><strong>(ii)</strong> $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - 3R_1$. Matrix becomes \[\begin{pmatrix} 1 & 2 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}\] (RREF). Rank = 1.</p>
+            <p><strong>(iii)</strong> $R_2 \to R_2 - 2R_1$. Matrix becomes \[\begin{pmatrix} 1 & 2 & 3 \\ 0 & 0 & 0 \end{pmatrix}\] (RREF). Rank = 1.</p>
             <div class="answer-box">✅ Rank is 1 for all three matrices since all rows are proportional.</div>
         </div>
     </div>
@@ -61,10 +62,10 @@
     <div class="qa-block">
         <div class="qa-header"><h4>Q2. Find three $2 \times 2$ matrices A, B, C such that $AB=AC$ with $B \neq C$ and $A \neq 0$.</h4><span class="tag tag-purple">Matrix Properties</span></div>
         <div class="qa-body">
-            <p>We need A to be a non-invertible matrix (zero divisor). Let $A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$.</p>
-            <p>Let $B = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$ and $C = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$. Note $B \neq C$.</p>
-            <p>Then $AB = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$.</p>
-            <p>And $AC = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$.</p>
+            <p>We need A to be a non-invertible matrix (zero divisor). Let $A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\].</p>
+            <p>Let $B = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}\] and $C = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}\]. Note $B \neq C$.</p>
+            <p>Then $AB = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}\].</p>
+            <p>And $AC = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}\].</p>
             <div class="answer-box">✅ A, B, C chosen such that $AB=AC=0$ despite $B \neq C$.</div>
         </div>
     </div>
@@ -97,12 +98,12 @@
     </div>
 
     <div class="qa-block">
-        <div class="qa-header"><h4>Q6. Let $R = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$. Find $R^2, R^3, R^n$.</h4><span class="tag tag-purple">Rotation Matrix</span></div>
+        <div class="qa-header"><h4>Q6. Let $R = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}\]. Find $R^2, R^3, R^n$.</h4><span class="tag tag-purple">Rotation Matrix</span></div>
         <div class="qa-body">
             <p>$R$ represents a counter-clockwise rotation by $\theta$. Applying it twice rotates by $2\theta$.</p>
-            <p>$R^2 = \begin{pmatrix} \cos(2\theta) & -\sin(2\theta) \\ \sin(2\theta) & \cos(2\theta) \end{pmatrix}$.</p>
+            <p>$R^2 = \begin{pmatrix} \cos(2\theta) & -\sin(2\theta) \\ \sin(2\theta) & \cos(2\theta) \end{pmatrix}\].</p>
             <p>By mathematical induction, applying it $n$ times rotates by $n\theta$.</p>
-            <div class="answer-box">✅ $R^n = \begin{pmatrix} \cos(n\theta) & -\sin(n\theta) \\ \sin(n\theta) & \cos(n\theta) \end{pmatrix}$.</div>
+            <div class="answer-box">✅ $R^n = \begin{pmatrix} \cos(n\theta) & -\sin(n\theta) \\ \sin(n\theta) & \cos(n\theta) \end{pmatrix}\].</div>
         </div>
     </div>
 
@@ -154,9 +155,9 @@
     </div>
 
     <div class="qa-block">
-        <div class="qa-header"><h4>Q6. Find RREF of: $\begin{pmatrix} -1 & 2 & -5 \\ 2 & -1 & 6 \\ 2 & -2 & 7 \end{pmatrix}$</h4><span class="tag tag-blue">RREF</span></div>
+        <div class="qa-header"><h4>Q6. Find RREF of: \[\begin{pmatrix} -1 & 2 & -5 \\ 2 & -1 & 6 \\ 2 & -2 & 7 \end{pmatrix}\]</h4><span class="tag tag-blue">RREF</span></div>
         <div class="qa-body">
-            <p>$R_1 \to -R_1$: $\begin{pmatrix} 1 & -2 & 5 \\ 2 & -1 & 6 \\ 2 & -2 & 7 \end{pmatrix}$. $R_2 \to R_2-2R_1, R_3 \to R_3-2R_1$: $\begin{pmatrix} 1 & -2 & 5 \\ 0 & 3 & -4 \\ 0 & 2 & -3 \end{pmatrix}$.</p>
+            <p>$R_1 \to -R_1$: \[\begin{pmatrix} 1 & -2 & 5 \\ 2 & -1 & 6 \\ 2 & -2 & 7 \end{pmatrix}\]. $R_2 \to R_2-2R_1, R_3 \to R_3-2R_1$: \[\begin{pmatrix} 1 & -2 & 5 \\ 0 & 3 & -4 \\ 0 & 2 & -3 \end{pmatrix}\].</p>
             <p>Reduce further to get identity matrix.</p>
             <div class="answer-box">✅ Since det is non-zero, RREF is the Identity Matrix $I_3$.</div>
         </div>
@@ -212,9 +213,9 @@
     <div class="qa-block">
         <div class="qa-header"><h4>Q6. Find basis and dimension spanned by $v_1=(1,2,3), v_2=(2,3,4), v_3=(3,4,5)$.</h4><span class="tag tag-blue">Basis</span></div>
         <div class="qa-body">
-            <p>Form matrix with vectors as rows and reduce: $\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 4 & 5 \end{pmatrix}$</p>
-            <p>$R_2 \to R_2-2R_1, R_3 \to R_3-3R_1$: $\begin{pmatrix} 1 & 2 & 3 \\ 0 & -1 & -2 \\ 0 & -2 & -4 \end{pmatrix}$</p>
-            <p>$R_3 \to R_3-2R_2$: $\begin{pmatrix} 1 & 2 & 3 \\ 0 & -1 & -2 \\ 0 & 0 & 0 \end{pmatrix}$</p>
+            <p>Form matrix with vectors as rows and reduce: \[\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 4 & 5 \end{pmatrix}\]</p>
+            <p>$R_2 \to R_2-2R_1, R_3 \to R_3-3R_1$: \[\begin{pmatrix} 1 & 2 & 3 \\ 0 & -1 & -2 \\ 0 & -2 & -4 \end{pmatrix}\]</p>
+            <p>$R_3 \to R_3-2R_2$: \[\begin{pmatrix} 1 & 2 & 3 \\ 0 & -1 & -2 \\ 0 & 0 & 0 \end{pmatrix}\]</p>
             <p>Two non-zero rows remain. **Dimension = 2**.</p>
             <div class="answer-box">✅ Basis: $\{(1,2,3), (0,-1,-2)\}$. Dimension = 2.</div>
         </div>
@@ -223,9 +224,9 @@
     <div class="qa-block">
         <div class="qa-header"><h4>Q7. Find the dimension spanned by $(1,1,0,0), (0,0,1,1), (1,0,1,0), (0,1,0,1)$ in $\mathbb{R}^4$.</h4><span class="tag tag-blue">Dimension</span></div>
         <div class="qa-body">
-            <p>Form matrix and row reduce: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \end{pmatrix}$. $R_3 \to R_3-R_1$: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & -1 & 1 & 0 \\ 0 & 1 & 0 & 1 \end{pmatrix}$.</p>
-            <p>$R_4 \to R_4+R_3$: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \end{pmatrix}$. Swap $R_2, R_3$: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 \end{pmatrix}$.</p>
-            <p>$R_4 \to R_4-R_3$: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}$. 3 non-zero rows.</p>
+            <p>Form matrix and row reduce: \[\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \end{pmatrix}\]. $R_3 \to R_3-R_1$: \[\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & -1 & 1 & 0 \\ 0 & 1 & 0 & 1 \end{pmatrix}\].</p>
+            <p>$R_4 \to R_4+R_3$: \[\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \end{pmatrix}\]. Swap $R_2, R_3$: \[\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 \end{pmatrix}\].</p>
+            <p>$R_4 \to R_4-R_3$: \[\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}\]. 3 non-zero rows.</p>
             <div class="answer-box">✅ Dimension = 3.</div>
         </div>
     </div>
@@ -250,19 +251,19 @@
             <p>Apply $T$ to the standard basis vectors $e_1 = (1,0)$ and $e_2 = (0,1)$.</p>
             <p>$T(1,0) = (2(1)-0, 1+0, -1) = (2, 1, -1)$.</p>
             <p>$T(0,1) = (2(0)-1, 0+3(1), 0) = (-1, 3, 0)$.</p>
-            <div class="answer-box">✅ The matrix is $A = \begin{pmatrix} 2 & -1 \\ 1 & 3 \\ -1 & 0 \end{pmatrix}$.</div>
+            <div class="answer-box">✅ The matrix is $A = \begin{pmatrix} 2 & -1 \\ 1 & 3 \\ -1 & 0 \end{pmatrix}\].</div>
         </div>
     </div>
 
     <div class="qa-block">
-        <div class="qa-header"><h4>Q9. Find the eigenvalues and eigenvectors of $A = \begin{pmatrix} 4 & -2 \\ 1 & 1 \end{pmatrix}$.</h4><span class="tag tag-purple">Eigenvalues</span></div>
+        <div class="qa-header"><h4>Q9. Find the eigenvalues and eigenvectors of $A = \begin{pmatrix} 4 & -2 \\ 1 & 1 \end{pmatrix}\].</h4><span class="tag tag-purple">Eigenvalues</span></div>
         <div class="qa-body">
             <p><strong>Step 1: Characteristic Equation.</strong> $\det(A - \lambda I) = 0$.</p>
             <p>$\det \begin{pmatrix} 4-\lambda & -2 \\ 1 & 1-\lambda \end{pmatrix} = (4-\lambda)(1-\lambda) - (-2)(1) = \lambda^2 - 5\lambda + 4 + 2 = \lambda^2 - 5\lambda + 6 = 0$.</p>
             <p>$(\lambda - 2)(\lambda - 3) = 0 \implies \lambda = 2, 3$.</p>
             <p><strong>Step 2: Eigenvectors.</strong></p>
-            <p>For $\lambda = 2$: $\begin{pmatrix} 2 & -2 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies x=y$. Eigenvector $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.</p>
-            <p>For $\lambda = 3$: $\begin{pmatrix} 1 & -2 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies x=2y$. Eigenvector $v_2 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$.</p>
+            <p>For $\lambda = 2$: \[\begin{pmatrix} 2 & -2 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies x=y$. Eigenvector $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\].</p>
+            <p>For $\lambda = 3$: \[\begin{pmatrix} 1 & -2 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies x=2y$. Eigenvector $v_2 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}\].</p>
             <div class="answer-box">✅ Eigenvalues are 2, 3. Eigenvectors are $(1,1)^T$ and $(2,1)^T$.</div>
         </div>
     </div>
@@ -272,7 +273,7 @@
         <div class="qa-body">
             <p>The diagonal matrix $D$ is formed by placing the eigenvalues on the diagonal.</p>
             <p>The matrix $P$ is formed by placing the corresponding eigenvectors as columns.</p>
-            <div class="answer-box">✅ $D = \begin{pmatrix} -3 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 4 \end{pmatrix}$, $P = \begin{pmatrix} 1 & 1 & 0 \\ -1 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$.</div>
+            <div class="answer-box">✅ $D = \begin{pmatrix} -3 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 4 \end{pmatrix}\], $P = \begin{pmatrix} 1 & 1 & 0 \\ -1 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\].</div>
         </div>
     </div>
 

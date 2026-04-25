@@ -42,6 +42,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: 
   <div class="topbar">
     <div><h2>Unit 1 — Linear Algebra</h2></div>
     <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+    <button class="menu-btn" id="menu-btn" style="margin-left:10px; background:var(--surface2); color:var(--text); border:1px solid var(--border); padding:0.55rem 1rem; border-radius:99px; font-weight:600; cursor:pointer; display:none;">☰ Menu</button>
   </div>
   <div class="page-content">
 
@@ -70,7 +71,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: 
         <p><strong>Reduced REF (RREF):</strong> REF + 1) Leading entries are 1. 2) Entries above leading entries are zero.</p>
         <p><strong>Rank(A):</strong> Number of pivots in REF = Dimension of column space = Number of linearly independent rows.</p>
         <div class="qa-block"><div class="qa-header"><h4>Example: Rank of $A$</h4></div><div class="qa-body">
-            $A = \begin{pmatrix} 1 & 1 & 1 \\ 2 & 0 & 4 \\ 3 & 2 & 4 \\ 0 & 5 & -5 \end{pmatrix}$. $R_2 \to R_2-2R_1$, $R_3 \to R_3-3R_1$ gives $\begin{pmatrix} 1 & 1 & 1 \\ 0 & -2 & 2 \\ 0 & -1 & 1 \\ 0 & 5 & -5 \end{pmatrix}$. Rows 2,3,4 are multiples. RREF has 2 non-zero rows. Rank = 2.
+            $A = \begin{pmatrix} 1 & 1 & 1 \\ 2 & 0 & 4 \\ 3 & 2 & 4 \\ 0 & 5 & -5 \end{pmatrix}\]. $R_2 \to R_2-2R_1$, $R_3 \to R_3-3R_1$ gives \[\begin{pmatrix} 1 & 1 & 1 \\ 0 & -2 & 2 \\ 0 & -1 & 1 \\ 0 & 5 & -5 \end{pmatrix}\]. Rows 2,3,4 are multiples. RREF has 2 non-zero rows. Rank = 2.
         </div></div>
         <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-3"><label>Can reduce to REF / RREF</label></div>
         <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-4"><label>Can calculate Rank of a Matrix</label></div>

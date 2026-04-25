@@ -43,6 +43,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: 
   <div class="topbar">
     <div><h2>ODE Assignment Solutions</h2></div>
     <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+    <button class="menu-btn" id="menu-btn" style="margin-left:10px; background:var(--surface2); color:var(--text); border:1px solid var(--border); padding:0.55rem 1rem; border-radius:99px; font-weight:600; cursor:pointer; display:none;">☰ Menu</button>
   </div>
   <div class="page-content">
 
@@ -154,7 +155,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: 
     <div class="qa-block">
         <div class="qa-header"><h4>Q9. Given $y_1 = x, y_2 = x e^x$, find Wronskian $W(y_1, y_2)$ and test linear independence on $(0, \infty)$.</h4><span class="tag tag-purple">Wronskian</span></div>
         <div class="qa-body">
-            <p><strong>Step 1:</strong> $W(y_1, y_2) = \begin{vmatrix} x & x e^x \\ 1 & e^x + x e^x \end{vmatrix} = x(e^x + x e^x) - x e^x = x e^x + x^2 e^x - x e^x = x^2 e^x$.</p>
+            <p><strong>Step 1:</strong> \[ W(y_1, y_2) = \begin{vmatrix} x & x e^x \\ 1 & e^x + x e^x \end{vmatrix} = x^2 e^x \]</p>
             <p><strong>Step 2:</strong> Since $x^2 e^x \neq 0$ for all $x \in (0, \infty)$, the functions are linearly independent.</p>
             <div class="answer-box">✅ Final Answer: $W = x^2 e^x \neq 0$; Functions are Linearly Independent.</div>
         </div>
