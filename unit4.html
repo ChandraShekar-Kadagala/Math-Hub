@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 4 — Higher Order ODEs | MAT 223 Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'], ['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea']}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="sidebar-logo"><h1>MAT 223 Hub</h1><p>Engineering Mathematics Sem 2</p></div>
+  <div class="nav-section-label">Units</div>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home &amp; Overview</a></li>
+    <li><a href="unit1.html">📐 Unit 1 — Linear Algebra</a></li>
+    <li><a href="unit2.html">🔄 Unit 2 — Transformations</a></li>
+    <li><a href="unit3.html">📘 Unit 3 — First Order ODE</a></li>
+    <li class="active"><a href="unit4.html">📕 Unit 4 — Higher Order ODE</a></li>
+  </ul>
+  <div class="nav-section-label">Practice</div>
+  <ul class="nav-links">
+    <li><a href="cla1.html">📝 CLA I Solutions</a></li>
+    <li><a href="practice.html">🎯 Assignment Solutions</a></li>
+  </ul>
+  <div class="progress-widget">
+    <p>📊 Global Progress</p>
+    <div class="progress-bar"><div class="progress-fill" id="overall-progress"></div></div>
+    <span id="progress-text">0/40 topics done</span>
+    <button class="reset-btn" id="reset-progress">Reset Progress</button>
+  </div>
+</nav>
+
+<div class="main">
+  <div class="topbar">
+    <div><h2>Unit 4 — Higher Order Linear ODEs</h2><p>Wronskian · Constant Coeffs · Euler-Cauchy · Undetermined Coefficients · Variation of Parameters</p></div>
+    <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+  </div>
+
+  <div class="page-content">
+    <div class="section-label">Unit 4</div>
+    <h1 class="page-title"><span>Higher Order</span> Differential Equations</h1>
+    <p class="page-subtitle">The general solution is always \(y = y_c + y_p\). First find the complementary solution, then the particular.</p>
+
+    <!-- ===== TOPIC 1: WRONSKIAN ===== -->
+    <div class="section-label">Topic 1</div>
+    <div class="card">
+      <div class="card-title">📐 The Wronskian — Linear Independence Test</div>
+      <div class="formula">
+        <strong>Definition:</strong>
+        \[W(y_1,y_2) = \begin{vmatrix}y_1 & y_2 \\ y_1' & y_2'\end{vmatrix} = y_1 y_2' - y_2 y_1'\]
+        <br>
+        <strong>Result:</strong> If \(W \neq 0\) on an interval, then \(y_1\) and \(y_2\) are <strong>linearly independent</strong> on that interval.
+      </div>
+      <div class="card-title" style="margin-top:1rem">Solved — Q9 of Assignment</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Given \(y_1 = x\), \(y_2 = xe^x\). Find \(W(y_1,y_2)\) and test independence on \((0,\infty)\).</p>
+      <ol class="method-steps">
+        <li>\(y_1 = x, \quad y_1' = 1\)</li>
+        <li>\(y_2 = xe^x, \quad y_2' = e^x + xe^x\)</li>
+        <li>\(W = x(e^x + xe^x) - (1)(xe^x) = xe^x + x^2e^x - xe^x = x^2e^x\)</li>
+        <li>On \((0,\infty)\): \(x^2e^x > 0\), so \(W \neq 0\). → Linearly Independent.</li>
+      </ol>
+      <div class="answer-box">Wronskian = \(x^2 e^x \neq 0\). Functions are Linearly Independent.</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u4-wronskian" id="u4t1"><label for="u4t1">I can compute the Wronskian and test linear independence ✓</label></div>
+    </div>
+
+    <!-- ===== TOPIC 2: CONSTANT COEFFICIENTS ===== -->
+    <div class="section-label">Topic 2</div>
+    <div class="card">
+      <div class="card-title">⚙️ Homogeneous Linear ODEs — Constant Coefficients</div>
+      <div class="formula">
+        <strong>Form:</strong> \(ay'' + by' + cy = 0\)<br><br>
+        <strong>Characteristic Equation:</strong> \(ar^2 + br + c = 0\)<br>
+        Solve for \(r\) using the quadratic formula.
+      </div>
+      <table class="data-table" style="margin-top:1rem">
+        <thead><tr><th>Roots</th><th>General Solution</th></tr></thead>
+        <tbody>
+          <tr><td>Real &amp; Distinct: \(r_1 \neq r_2\)</td><td>\(y = c_1 e^{r_1 x} + c_2 e^{r_2 x}\)</td></tr>
+          <tr><td>Real &amp; Repeated: \(r_1 = r_2 = r\)</td><td>\(y = (c_1 + c_2 x)e^{rx}\)</td></tr>
+          <tr><td>Complex: \(r = \alpha \pm i\beta\)</td><td>\(y = e^{\alpha x}(c_1\cos\beta x + c_2\sin\beta x)\)</td></tr>
+        </tbody>
+      </table>
+      <div class="card-title" style="margin-top:1rem">Solved — Q10 of Assignment (Distinct Roots + IVP)</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(y'' - 5y' + 6y = 0\), &nbsp; \(y(0)=1,\; y'(0)=5\)</p>
+      <ol class="method-steps">
+        <li>Characteristic equation: \(r^2-5r+6=0 \Rightarrow (r-2)(r-3)=0 \Rightarrow r=2,3\)</li>
+        <li>General solution: \(y = c_1e^{2x} + c_2e^{3x}\)</li>
+        <li>Apply \(y(0)=1\): \(c_1+c_2=1\)</li>
+        <li>\(y' = 2c_1e^{2x}+3c_2e^{3x}\). Apply \(y'(0)=5\): \(2c_1+3c_2=5\)</li>
+        <li>Solve: \(c_2=3, c_1=-2\)</li>
+      </ol>
+      <div class="answer-box">Answer: \(y = 3e^{3x} - 2e^{2x}\)</div>
+
+      <div class="card-title" style="margin-top:1.5rem">Solved — Q11 (Repeated Root + IVP)</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(y'' - 4y' + 4y = 0\), &nbsp; \(y(0)=0,\; y'(0)=0\)</p>
+      <ol class="method-steps">
+        <li>Char. eq: \(r^2-4r+4=0 \Rightarrow (r-2)^2=0 \Rightarrow r=2\) (repeated)</li>
+        <li>General solution: \(y = (c_1 + c_2 x)e^{2x}\)</li>
+        <li>\(y(0)=0 \Rightarrow c_1=0\). &nbsp; \(y' = c_2e^{2x}+2c_2xe^{2x}\). \(y'(0)=0 \Rightarrow c_2=0\).</li>
+      </ol>
+      <div class="answer-box">Answer: \(y = 0\) (Trivial Solution — both constants are zero due to zero ICs)</div>
+
+      <div class="card-title" style="margin-top:1.5rem">Solved — Q12 (Complex Roots + IVP)</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(y'' + 2y' + 5y = 0\), &nbsp; \(y(0)=0,\; y'(0)=0\)</p>
+      <ol class="method-steps">
+        <li>Char. eq: \(r^2+2r+5=0\). Discriminant: \(4-20=-16 &lt; 0\) → complex roots.</li>
+        <li>\(r = \dfrac{-2\pm\sqrt{-16}}{2} = -1 \pm 2i\). So \(\alpha=-1, \beta=2\).</li>
+        <li>General solution: \(y = e^{-x}(c_1\cos 2x + c_2\sin 2x)\)</li>
+        <li>\(y(0)=0 \Rightarrow c_1=0\). Both ICs zero → trivial solution.</li>
+      </ol>
+      <div class="answer-box">Answer: \(y = 0\) (Trivial Solution)</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u4-constcoeff" id="u4t2"><label for="u4t2">I can solve all three cases of constant coefficient ODEs and apply IVPs ✓</label></div>
+    </div>
+
+    <!-- ===== TOPIC 3: EULER-CAUCHY ===== -->
+    <div class="section-label">Topic 3</div>
+    <div class="card">
+      <div class="card-title">🌀 Euler-Cauchy Differential Equations</div>
+      <div class="formula">
+        <strong>Form:</strong> \(x^2 y'' + axy' + by = 0\) &nbsp; (non-constant coefficients, but pattern!)<br><br>
+        <strong>Substitution:</strong> Assume \(y = x^m\). This gives \(m(m-1) + am + b = 0\) (Auxiliary Equation).
+      </div>
+      <table class="data-table" style="margin-top:1rem">
+        <thead><tr><th>Roots</th><th>General Solution</th></tr></thead>
+        <tbody>
+          <tr><td>Real &amp; Distinct: \(m_1 \neq m_2\)</td><td>\(y = c_1 x^{m_1} + c_2 x^{m_2}\)</td></tr>
+          <tr><td>Real &amp; Repeated: \(m_1=m_2=m\)</td><td>\(y = x^m(c_1 + c_2\ln x)\)</td></tr>
+          <tr><td>Complex: \(m = \alpha \pm i\beta\)</td><td>\(y = x^\alpha[c_1\cos(\beta\ln x)+c_2\sin(\beta\ln x)]\)</td></tr>
+        </tbody>
+      </table>
+      <div class="warn-box" style="margin-top:1rem">⚠️ Common Mistake: Using \(e^{rx}\) instead of \(x^m\) for Euler-Cauchy. The form is \(y=x^m\), NOT \(y=e^{rx}\)!</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u4-euler" id="u4t3"><label for="u4t3">I can solve Euler-Cauchy equations for all three root cases ✓</label></div>
+    </div>
+
+    <!-- ===== TOPIC 4: UNDETERMINED COEFFICIENTS ===== -->
+    <div class="section-label">Topic 4</div>
+    <div class="card">
+      <div class="card-title">🎲 Method of Undetermined Coefficients</div>
+      <p style="margin-bottom:1rem">Used for <strong>non-homogeneous</strong> equations \(ay''+by'+cy = g(x)\). First solve the homogeneous part, then guess \(y_p\).</p>
+      <table class="data-table">
+        <thead><tr><th>Right-Hand Side \(g(x)\)</th><th>Guess for \(y_p\)</th></tr></thead>
+        <tbody>
+          <tr><td>\(e^{ax}\)</td><td>\(Ae^{ax}\)</td></tr>
+          <tr><td>\(\sin bx\) or \(\cos bx\)</td><td>\(A\cos bx + B\sin bx\)</td></tr>
+          <tr><td>Polynomial \(x^n\)</td><td>\(A_0 + A_1x + \cdots + A_nx^n\)</td></tr>
+          <tr><td>\(xe^{ax}\)</td><td>\((Ax+B)e^{ax}\)</td></tr>
+        </tbody>
+      </table>
+      <div class="warn-box" style="margin-top:1rem">⚠️ <strong>Modification Rule:</strong> If your guess is already in the complementary solution \(y_c\), multiply your guess by \(x\). If it's still there, multiply by \(x^2\).</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u4-undetermined" id="u4t4"><label for="u4t4">I can apply undetermined coefficients including the modification rule ✓</label></div>
+    </div>
+
+    <!-- ===== TOPIC 5: VARIATION OF PARAMETERS ===== -->
+    <div class="section-label">Topic 5</div>
+    <div class="card">
+      <div class="card-title">🔬 Variation of Parameters</div>
+      <p style="margin-bottom:1rem">A general method for \(y'' + Py' + Qy = g(x)\). Works even when undetermined coefficients fails (e.g., \(g(x) = \tan x\)).</p>
+      <div class="formula">
+        If \(y_c = c_1 y_1 + c_2 y_2\), then:
+        \[y_p = u_1 y_1 + u_2 y_2\]
+        where:
+        \[u_1 = -\int\frac{y_2 g(x)}{W}\,dx, \qquad u_2 = \int\frac{y_1 g(x)}{W}\,dx\]
+        and \(W = W(y_1, y_2)\) is the Wronskian.
+      </div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u4-vop" id="u4t5"><label for="u4t5">I understand variation of parameters and can compute \(u_1\) and \(u_2\) ✓</label></div>
+    </div>
+
+    <!-- ===== TOPIC 6: REDUCTION OF ORDER ===== -->
+    <div class="section-label">Topic 6</div>
+    <div class="card">
+      <div class="card-title">📉 Reduction of Order</div>
+      <p style="margin-bottom:1rem">Used when <strong>one solution \(y_1\) is already known</strong>. Find a second independent solution.</p>
+      <div class="formula">
+        <strong>Assume:</strong> \(y_2 = v(x) \cdot y_1\)<br>
+        Substitute into the ODE. The equation reduces to a first-order ODE in \(v'(x)\). Solve for \(v\), then \(y_2\).
+      </div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u4-reduction" id="u4t6"><label for="u4t6">I understand reduction of order when one solution is given ✓</label></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

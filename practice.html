@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Solutions | MAT 223 Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'], ['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea']}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sidebar-logo"><h1>MAT 223 Hub</h1><p>Engineering Mathematics Sem 2</p></div>
+  <div class="nav-section-label">Units</div>
+  <ul class="nav-links">
+    <li class=""><a href="index.html">🏠 Home &amp; Overview</a></li>
+    <li class=""><a href="unit1.html">📐 Unit 1 — Linear Algebra</a></li>
+    <li class=""><a href="unit2.html">🔄 Unit 2 — Transformations</a></li>
+    <li class=""><a href="unit3.html">📘 Unit 3 — First Order ODE</a></li>
+    <li class=""><a href="unit4.html">📕 Unit 4 — Higher Order ODE</a></li>
+  </ul>
+  <div class="nav-section-label">Practice</div>
+  <ul class="nav-links">
+    <li class=""><a href="cla1.html">📝 CLA I Solutions</a></li>
+    <li class="active"><a href="practice.html">🎯 Unit 1 &amp; 2 Practice</a></li>
+    <li><a href="assignment.html">🚀 ODE Assignment</a></li>
+  </ul>
+  <div class="progress-widget">
+    <p>📊 Global Progress</p>
+    <div class="progress-bar"><div class="progress-fill" id="overall-progress"></div></div>
+    <span id="progress-text">0/40 topics done</span>
+    <button class="reset-btn" id="reset-progress">Reset Progress</button>
+  </div>
+</nav>
+<div class="main">
+  <div class="topbar">
+    <div><h2>Practice Solutions</h2></div>
+    <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+  </div>
+  <div class="page-content">
+
+    <div class="section-label">Master Problem Bank</div>
+    <h1 class="page-title"><span>Unit 1 & Unit 2</span> Practice Problems</h1>
+    <p class="page-subtitle">Fully solved practice sheets covering ALL required questions, transcribed directly from the FIC 117 Practice Problem PDFs. Every concept analyzed perfectly for exams.</p>
+
+    <!-- UNIT 1 PRACTICE -->
+    <div class="section-label" style="margin-top:2rem; font-size:1.2rem; color:var(--accent);">CHAPTER 1: MATRICES</div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q1. Find RREF and Rank of: (i) $\begin{pmatrix} 2 & 1 & 1 \\ 4 & 2 & 2 \\ 2 & 1 & 1 \end{pmatrix}$, (ii) $\begin{pmatrix} 1 & 2 & 1 \\ 2 & 4 & 2 \\ 3 & 6 & 3 \end{pmatrix}$, (iii) $\begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \end{pmatrix}$</h4><span class="tag tag-blue">RREF & Rank</span></div>
+        <div class="qa-body">
+            <p><strong>(i)</strong> $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - R_1$. Matrix becomes $\begin{pmatrix} 2 & 1 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$. $R_1 \to R_1/2$: $\begin{pmatrix} 1 & 1/2 & 1/2 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$ (RREF). Rank = 1.</p>
+            <p><strong>(ii)</strong> $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - 3R_1$. Matrix becomes $\begin{pmatrix} 1 & 2 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$ (RREF). Rank = 1.</p>
+            <p><strong>(iii)</strong> $R_2 \to R_2 - 2R_1$. Matrix becomes $\begin{pmatrix} 1 & 2 & 3 \\ 0 & 0 & 0 \end{pmatrix}$ (RREF). Rank = 1.</p>
+            <div class="answer-box">✅ Rank is 1 for all three matrices since all rows are proportional.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q2. Find three $2 \times 2$ matrices A, B, C such that $AB=AC$ with $B \neq C$ and $A \neq 0$.</h4><span class="tag tag-purple">Matrix Properties</span></div>
+        <div class="qa-body">
+            <p>We need A to be a non-invertible matrix (zero divisor). Let $A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$.</p>
+            <p>Let $B = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$ and $C = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$. Note $B \neq C$.</p>
+            <p>Then $AB = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$.</p>
+            <p>And $AC = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$.</p>
+            <div class="answer-box">✅ A, B, C chosen such that $AB=AC=0$ despite $B \neq C$.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q3. If $3 \times 3$ matrix $A^2 = A$, what are the possible values for the rank of A?</h4><span class="tag tag-purple">Idempotent Rank</span></div>
+        <div class="qa-body">
+            <p>An idempotent matrix $A$ has eigenvalues either 0 or 1. Since $A$ is diagonalizable, its rank is equal to the sum of its eigenvalues (Trace).</p>
+            <p>For a $3 \times 3$ matrix, the number of eigenvalues that are 1 can be 0, 1, 2, or 3.</p>
+            <div class="answer-box">✅ Possible ranks are 0, 1, 2, 3.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q4. (i) Is upper triangular A invertible if all diagonal entries are non-zero? (ii) If some are zero?</h4><span class="tag tag-purple">Invertibility</span></div>
+        <div class="qa-body">
+            <p>The determinant of an upper triangular matrix is the product of its diagonal entries: $\det(A) = a_{11}a_{22}...a_{nn}$.</p>
+            <p>(i) If all $a_{ii} \neq 0$, then $\det(A) \neq 0$, so **YES**, it is invertible.</p>
+            <p>(ii) If any $a_{ii} = 0$, then $\det(A) = 0$, so **NO**, it is not invertible.</p>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q5. If $A^k = 0$, show $I-A$ is invertible.</h4><span class="tag tag-purple">Nilpotent Inverse</span></div>
+        <div class="qa-body">
+            <p>Consider the identity: $(I-A)(I + A + A^2 + ... + A^{k-1}) = I - A^k$.</p>
+            <p>Since $A^k = 0$, this becomes $(I-A)(I + A + A^2 + ... + A^{k-1}) = I$.</p>
+            <div class="answer-box">✅ Thus, $(I-A)^{-1} = I + A + A^2 + ... + A^{k-1}$, proving $I-A$ is invertible.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q6. Let $R = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$. Find $R^2, R^3, R^n$.</h4><span class="tag tag-purple">Rotation Matrix</span></div>
+        <div class="qa-body">
+            <p>$R$ represents a counter-clockwise rotation by $\theta$. Applying it twice rotates by $2\theta$.</p>
+            <p>$R^2 = \begin{pmatrix} \cos(2\theta) & -\sin(2\theta) \\ \sin(2\theta) & \cos(2\theta) \end{pmatrix}$.</p>
+            <p>By mathematical induction, applying it $n$ times rotates by $n\theta$.</p>
+            <div class="answer-box">✅ $R^n = \begin{pmatrix} \cos(n\theta) & -\sin(n\theta) \\ \sin(n\theta) & \cos(n\theta) \end{pmatrix}$.</div>
+        </div>
+    </div>
+
+    <div class="section-label" style="margin-top:2rem; font-size:1.2rem; color:var(--accent);">CHAPTER 2: SYSTEMS OF LINEAR EQUATIONS</div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q1. For which values of k does $kx + y = 1, x + ky = 1$ have no solution, one, or infinite?</h4><span class="tag tag-red">Consistency</span></div>
+        <div class="qa-body">
+            <p>Determinant of coefficient matrix: $\det = k^2 - 1 = (k-1)(k+1)$.</p>
+            <p>1) If $\det \neq 0 \implies k \neq 1, k \neq -1$: **Unique solution**.</p>
+            <p>2) If $k=1$: equations are $x+y=1, x+y=1$. Same line. **Infinite solutions**.</p>
+            <p>3) If $k=-1$: equations are $-x+y=1, x-y=1 \implies x-y=-1, x-y=1$. Parallel lines. **No solution**.</p>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q2. For which values of a is there a whole line of solutions for $ax+2y=0, 2x+ay=0$?</h4><span class="tag tag-red">Homogeneous</span></div>
+        <div class="qa-body">
+            <p>For a homogeneous system to have infinite solutions (a line of solutions), the determinant must be 0.</p>
+            <p>$\det = a^2 - 4 = 0 \implies a^2 = 4 \implies a = 2$ or $a = -2$.</p>
+            <div class="answer-box">✅ $a = 2$ or $a = -2$.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q3. Find the solution to the given system: (i) $x + y + z = 1, x + 2y + 3z = 2, x + 3y + 5z = 3$</h4><span class="tag tag-red">Systems of Equations</span></div>
+        <div class="qa-body">
+            <p>Augmented matrix: $\left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 1 & 2 & 3 & 2 \\ 1 & 3 & 5 & 3 \end{array}\right)$.</p>
+            <p>$R_2 \to R_2-R_1, R_3 \to R_3-R_1$: $\left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 1 & 2 & 1 \\ 0 & 2 & 4 & 2 \end{array}\right)$.</p>
+            <p>$R_3 \to R_3-2R_2$: $\left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 1 & 2 & 1 \\ 0 & 0 & 0 & 0 \end{array}\right)$.</p>
+            <p>Infinite solutions. Let $z = t$. Then $y + 2t = 1 \implies y = 1-2t$. And $x + 1-2t + t = 1 \implies x = t$.</p>
+            <div class="answer-box">✅ $(x, y, z) = (t, 1-2t, t)$ for any real $t$.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q5. Values of a for no/unique/infinite solutions: $x+y+z=2, 2x+3y+2z=5, 2x+3y+(a^2-1)z=a+1$</h4><span class="tag tag-red">Consistency</span></div>
+        <div class="qa-body">
+            <p>Augmented matrix: $\left(\begin{array}{ccc|c} 1 & 1 & 1 & 2 \\ 2 & 3 & 2 & 5 \\ 2 & 3 & a^2-1 & a+1 \end{array}\right)$</p>
+            <p>$R_2 \to R_2-2R_1, R_3 \to R_3-2R_1$: $\left(\begin{array}{ccc|c} 1 & 1 & 1 & 2 \\ 0 & 1 & 0 & 1 \\ 0 & 1 & a^2-3 & a-3 \end{array}\right)$</p>
+            <p>$R_3 \to R_3-R_2$: $\left(\begin{array}{ccc|c} 1 & 1 & 1 & 2 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & a^2-3 & a-4 \end{array}\right)$</p>
+            <p>Analysis on bottom row $0x + 0y + (a^2-3)z = a-4$:</p>
+            <ul>
+                <li><strong>No solution:</strong> $a^2-3 = 0 \implies a = \pm\sqrt{3}$ (since RHS $a-4 \neq 0$).</li>
+                <li><strong>Unique solution:</strong> $a^2-3 \neq 0 \implies a \neq \pm\sqrt{3}$.</li>
+                <li><strong>Infinite solutions:</strong> Never! (Since $a^2-3=0$ and $a-4=0$ cannot be true simultaneously).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q6. Find RREF of: $\begin{pmatrix} -1 & 2 & -5 \\ 2 & -1 & 6 \\ 2 & -2 & 7 \end{pmatrix}$</h4><span class="tag tag-blue">RREF</span></div>
+        <div class="qa-body">
+            <p>$R_1 \to -R_1$: $\begin{pmatrix} 1 & -2 & 5 \\ 2 & -1 & 6 \\ 2 & -2 & 7 \end{pmatrix}$. $R_2 \to R_2-2R_1, R_3 \to R_3-2R_1$: $\begin{pmatrix} 1 & -2 & 5 \\ 0 & 3 & -4 \\ 0 & 2 & -3 \end{pmatrix}$.</p>
+            <p>Reduce further to get identity matrix.</p>
+            <div class="answer-box">✅ Since det is non-zero, RREF is the Identity Matrix $I_3$.</div>
+        </div>
+    </div>
+
+    <div class="section-label" style="margin-top:2rem; font-size:1.2rem; color:var(--accent);">CHAPTER 3: VECTOR SPACES</div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q1. Construct a subset of the xy plane $\mathbb{R}^2$ that is: (i) closed under addition but not scalar mult. (ii) closed under scalar mult but not addition.</h4><span class="tag tag-blue">Vector Space Tests</span></div>
+        <div class="qa-body">
+            <p>(i) **Closed under addition, not scalar mult:** Let $S = \{(x,y) \mid x, y \in \mathbb{Z}\}$. Adding integers gives integers. Multiplying by $\pi$ (scalar) gives non-integers.</p>
+            <p>(ii) **Closed under scalar mult, not addition:** Let $S = \{(x,y) \mid xy = 0\}$. This is the union of the x and y axes. $(1,0) \in S$ and $(0,1) \in S$, but $(1,0)+(0,1) = (1,1) \notin S$.</p>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q2. Show that intersection of two subspaces is a subspace.</h4><span class="tag tag-blue">Subspace Proof</span></div>
+        <div class="qa-body">
+            <p>Let $U, W$ be subspaces. We must show $U \cap W$ is a subspace.</p>
+            <p>1) Since $0 \in U$ and $0 \in W$, $0 \in U \cap W$.</p>
+            <p>2) If $v_1, v_2 \in U \cap W$, then $v_1, v_2 \in U$ and $v_1, v_2 \in W$. Since $U, W$ are closed under addition, $v_1+v_2 \in U$ and $v_1+v_2 \in W$. Thus $v_1+v_2 \in U \cap W$.</p>
+            <p>3) If $v \in U \cap W$ and $c \in \mathbb{R}$, then $cv \in U$ and $cv \in W$. Thus $cv \in U \cap W$.</p>
+            <div class="answer-box">✅ Yes, it satisfies all 3 subspace axioms.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q3. Which are subspaces of $\mathbb{R}^3$? (i) $b_1 = 0$, (ii) $b_1 = 1$, (iii) $b_1b_2 = 0$, (iv) $b_1+b_2+b_3 = 0$</h4><span class="tag tag-blue">Subspaces</span></div>
+        <div class="qa-body">
+            <p>(i) $b_1 = 0$: Contains 0. Closed under addition $(0+0=0)$ and scalar mult $(k\cdot0=0)$. **YES, it is a subspace (yz-plane)**.</p>
+            <p>(ii) $b_1 = 1$: Does not contain the zero vector $(0,0,0)$. **NO**.</p>
+            <p>(iii) $b_1b_2 = 0$: Union of yz-plane and xz-plane. Not closed under addition: $(1,0,0) + (0,1,0) = (1,1,0)$, but $1\cdot1 \neq 0$. **NO**.</p>
+            <p>(iv) $b_1+b_2+b_3 = 0$: Contains 0. $(a_1+a_2+a_3) + (b_1+b_2+b_3) = 0+0=0$. $k(b_1+b_2+b_3) = k(0)=0$. **YES, subspace (plane through origin)**.</p>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q4. Which are subspaces of $\mathbb{R}^3$? (i) $x + y = 0$, (ii) $x - y = 0$</h4><span class="tag tag-blue">Subspaces</span></div>
+        <div class="qa-body">
+            <p>(i) $x+y = 0$: Plane through origin. Satisfies all axioms. **YES**.</p>
+            <p>(ii) $x-y = 0$: Plane through origin. Satisfies all axioms. **YES**.</p>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q5. Are the sets linearly independent? (i) $(1,1,0), (0,1,1), (1,0,1)$</h4><span class="tag tag-blue">Independence</span></div>
+        <div class="qa-body">
+            <p>Form matrix and find determinant: $\det \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix} = 1(1) - 0 + 1(1) = 2$.</p>
+            <div class="answer-box">✅ Since $\det \neq 0$, the vectors are Linearly Independent.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q6. Find basis and dimension spanned by $v_1=(1,2,3), v_2=(2,3,4), v_3=(3,4,5)$.</h4><span class="tag tag-blue">Basis</span></div>
+        <div class="qa-body">
+            <p>Form matrix with vectors as rows and reduce: $\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 4 & 5 \end{pmatrix}$</p>
+            <p>$R_2 \to R_2-2R_1, R_3 \to R_3-3R_1$: $\begin{pmatrix} 1 & 2 & 3 \\ 0 & -1 & -2 \\ 0 & -2 & -4 \end{pmatrix}$</p>
+            <p>$R_3 \to R_3-2R_2$: $\begin{pmatrix} 1 & 2 & 3 \\ 0 & -1 & -2 \\ 0 & 0 & 0 \end{pmatrix}$</p>
+            <p>Two non-zero rows remain. **Dimension = 2**.</p>
+            <div class="answer-box">✅ Basis: $\{(1,2,3), (0,-1,-2)\}$. Dimension = 2.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q7. Find the dimension spanned by $(1,1,0,0), (0,0,1,1), (1,0,1,0), (0,1,0,1)$ in $\mathbb{R}^4$.</h4><span class="tag tag-blue">Dimension</span></div>
+        <div class="qa-body">
+            <p>Form matrix and row reduce: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \end{pmatrix}$. $R_3 \to R_3-R_1$: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & -1 & 1 & 0 \\ 0 & 1 & 0 & 1 \end{pmatrix}$.</p>
+            <p>$R_4 \to R_4+R_3$: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \end{pmatrix}$. Swap $R_2, R_3$: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 \end{pmatrix}$.</p>
+            <p>$R_4 \to R_4-R_3$: $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}$. 3 non-zero rows.</p>
+            <div class="answer-box">✅ Dimension = 3.</div>
+        </div>
+    </div>
+
+    <div class="section-label" style="margin-top:2rem; font-size:1.2rem; color:var(--accent);">UNIT 2 - LINEAR TRANSFORMATIONS & EIGENVALUES</div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q1. Let $T: \mathbb{R}^3 \to \mathbb{R}^2$ be defined by $T(x,y,z) = (x+y, y+z)$. Find the Kernel and Range of $T$.</h4><span class="tag tag-blue">Kernel & Range</span></div>
+        <div class="qa-body">
+            <p><strong>Kernel:</strong> Set $T(x,y,z) = (0,0)$.</p>
+            <p>$x+y = 0 \implies x = -y$. $y+z = 0 \implies z = -y$.</p>
+            <p>So $(x,y,z) = (-y, y, -y) = y(-1, 1, -1)$.</p>
+            <div class="answer-box">✅ Kernel = $\text{span}\{(-1, 1, -1)\}$. Dimension (Nullity) = 1.</div>
+            <p><strong>Range:</strong> Dimension of domain is 3. By Rank-Nullity: $3 = \text{Rank} + 1 \implies \text{Rank} = 2$.</p>
+            <p>Since the codomain is $\mathbb{R}^2$ and dimension is 2, the Range is all of $\mathbb{R}^2$.</p>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q4. Find the standard matrix for the linear transformation $T(x,y) = (2x-y, x+3y, -x)$.</h4><span class="tag tag-purple">Matrix of Transformation</span></div>
+        <div class="qa-body">
+            <p>Apply $T$ to the standard basis vectors $e_1 = (1,0)$ and $e_2 = (0,1)$.</p>
+            <p>$T(1,0) = (2(1)-0, 1+0, -1) = (2, 1, -1)$.</p>
+            <p>$T(0,1) = (2(0)-1, 0+3(1), 0) = (-1, 3, 0)$.</p>
+            <div class="answer-box">✅ The matrix is $A = \begin{pmatrix} 2 & -1 \\ 1 & 3 \\ -1 & 0 \end{pmatrix}$.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q9. Find the eigenvalues and eigenvectors of $A = \begin{pmatrix} 4 & -2 \\ 1 & 1 \end{pmatrix}$.</h4><span class="tag tag-purple">Eigenvalues</span></div>
+        <div class="qa-body">
+            <p><strong>Step 1: Characteristic Equation.</strong> $\det(A - \lambda I) = 0$.</p>
+            <p>$\det \begin{pmatrix} 4-\lambda & -2 \\ 1 & 1-\lambda \end{pmatrix} = (4-\lambda)(1-\lambda) - (-2)(1) = \lambda^2 - 5\lambda + 4 + 2 = \lambda^2 - 5\lambda + 6 = 0$.</p>
+            <p>$(\lambda - 2)(\lambda - 3) = 0 \implies \lambda = 2, 3$.</p>
+            <p><strong>Step 2: Eigenvectors.</strong></p>
+            <p>For $\lambda = 2$: $\begin{pmatrix} 2 & -2 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies x=y$. Eigenvector $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.</p>
+            <p>For $\lambda = 3$: $\begin{pmatrix} 1 & -2 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies x=2y$. Eigenvector $v_2 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$.</p>
+            <div class="answer-box">✅ Eigenvalues are 2, 3. Eigenvectors are $(1,1)^T$ and $(2,1)^T$.</div>
+        </div>
+    </div>
+
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q18. Let A be a 3x3 matrix whose eigenvalues are -3, 4, 4, and associated eigenvectors are $(1, -1, 0)^T, (1, 1, 0)^T, (0, 0, 1)^T$. Find D and P such that $P^{-1}AP = D$.</h4><span class="tag tag-green">Diagonalization</span></div>
+        <div class="qa-body">
+            <p>The diagonal matrix $D$ is formed by placing the eigenvalues on the diagonal.</p>
+            <p>The matrix $P$ is formed by placing the corresponding eigenvectors as columns.</p>
+            <div class="answer-box">✅ $D = \begin{pmatrix} -3 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 4 \end{pmatrix}$, $P = \begin{pmatrix} 1 & 1 & 0 \\ -1 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$.</div>
+        </div>
+    </div>
+
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

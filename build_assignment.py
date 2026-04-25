@@ -1,0 +1,233 @@
+import os
+import glob
+
+def get_base(title, active_page, body_content):
+    return f"""<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title} | MAT 223 Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script>MathJax={{tex:{{inlineMath:[['$','$'], ['\\\\(','\\\\)']],displayMath:[['\\\\[','\\\\]']]}},options:{{skipHtmlTags:['script','noscript','style','textarea']}}}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="styles.css">
+<style>
+.main {{ width: calc(100% - var(--sidebar-w)); overflow-x: hidden; }}
+@media (max-width: 900px) {{ .main {{ width: 100%; }} }}
+mjx-container {{ overflow-x: auto; overflow-y: hidden; max-width: 100%; display: block; }}
+</style>
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sidebar-logo"><h1>MAT 223 Hub</h1><p>Engineering Mathematics Sem 2</p></div>
+  <div class="nav-section-label">Units</div>
+  <ul class="nav-links">
+    <li class="{'active' if active_page == 'index' else ''}"><a href="index.html">🏠 Home &amp; Overview</a></li>
+    <li class="{'active' if active_page == 'unit1' else ''}"><a href="unit1.html">📐 Unit 1 — Linear Algebra</a></li>
+    <li class="{'active' if active_page == 'unit2' else ''}"><a href="unit2.html">🔄 Unit 2 — Transformations</a></li>
+    <li class="{'active' if active_page == 'unit3' else ''}"><a href="unit3.html">📘 Unit 3 — First Order ODE</a></li>
+    <li class="{'active' if active_page == 'unit4' else ''}"><a href="unit4.html">📕 Unit 4 — Higher Order ODE</a></li>
+  </ul>
+  <div class="nav-section-label">Practice</div>
+  <ul class="nav-links">
+    <li class="{'active' if active_page == 'cla1' else ''}"><a href="cla1.html">📝 CLA I Solutions</a></li>
+    <li class="{'active' if active_page == 'practice' else ''}"><a href="practice.html">🎯 Unit 1 &amp; 2 Practice</a></li>
+    <li class="{'active' if active_page == 'assignment' else ''}"><a href="assignment.html">🚀 ODE Assignment</a></li>
+  </ul>
+  <div class="progress-widget">
+    <p>📊 Global Progress</p>
+    <div class="progress-bar"><div class="progress-fill" id="overall-progress"></div></div>
+    <span id="progress-text">0/40 topics done</span>
+    <button class="reset-btn" id="reset-progress">Reset Progress</button>
+  </div>
+</nav>
+<div class="main">
+  <div class="topbar">
+    <div><h2>{title}</h2></div>
+    <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+  </div>
+  <div class="page-content">
+{body_content}
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>"""
+
+assign_content = r"""
+    <div class="section-label">ODE Assignment</div>
+    <h1 class="page-title"><span>Differential Equations</span> Solutions</h1>
+    <p class="page-subtitle">Fully answered, step-by-step solutions for all 12 questions from the ODE Assignment (Unit 3 & Unit 4).</p>
+
+    <!-- Q1 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q1. Solve: $\frac{dy}{dx} + 2y = e^{-x}$</h4><span class="tag tag-blue">Linear ODE</span></div>
+        <div class="qa-body">
+            <p>This is a linear first-order differential equation of the form $\frac{dy}{dx} + P(x)y = Q(x)$, where $P(x) = 2$ and $Q(x) = e^{-x}$.</p>
+            <p><strong>Step 1:</strong> Integrating Factor (IF) = $e^{\int P(x) dx} = e^{\int 2 dx} = e^{2x}$.</p>
+            <p><strong>Step 2:</strong> General Solution: $y \cdot (\text{IF}) = \int Q(x) \cdot (\text{IF}) dx + C$</p>
+            <p>$y e^{2x} = \int e^{-x} \cdot e^{2x} dx = \int e^x dx$</p>
+            <p>$y e^{2x} = e^x + C$</p>
+            <div class="answer-box">✅ Final Answer: $y = e^{-x} + C e^{-2x}$</div>
+        </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q2. Solve: $\frac{dy}{dx} = \frac{y^2+1}{x^2+1}$</h4><span class="tag tag-green">Separable ODE</span></div>
+        <div class="qa-body">
+            <p>Using the method of Separation of Variables:</p>
+            <p><strong>Step 1:</strong> $\frac{dy}{y^2+1} = \frac{dx}{x^2+1}$</p>
+            <p><strong>Step 2:</strong> Integrating both sides: $\int \frac{1}{y^2+1} dy = \int \frac{1}{x^2+1} dx$</p>
+            <p>$\arctan(y) = \arctan(x) + C$</p>
+            <div class="answer-box">✅ Final Answer: $\arctan(y) - \arctan(x) = C$</div>
+        </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q3. Solve: $\frac{dy}{dx} + \frac{2}{x}y = x^3 y^3$</h4><span class="tag tag-purple">Bernoulli Equation</span></div>
+        <div class="qa-body">
+            <p>This is a Bernoulli's Equation of the form $\frac{dy}{dx} + P(x)y = Q(x)y^n$ with $n = 3$.</p>
+            <p><strong>Step 1:</strong> Divide by $y^3$: $y^{-3} \frac{dy}{dx} + \frac{2}{x}y^{-2} = x^3$.</p>
+            <p><strong>Step 2:</strong> Let $v = y^{-2}$. Then $\frac{dv}{dx} = -2y^{-3} \frac{dy}{dx}$.</p>
+            <p><strong>Step 3:</strong> Substituting: $-\frac{1}{2} \frac{dv}{dx} + \frac{2}{x}v = x^3 \implies \frac{dv}{dx} - \frac{4}{x}v = -2x^3$.</p>
+            <p><strong>Step 4:</strong> IF = $e^{\int -4/x dx} = x^{-4}$.</p>
+            <p><strong>Step 5:</strong> $v \cdot x^{-4} = \int -2x^3 \cdot x^{-4} dx = \int -\frac{2}{x} dx = -2\ln|x| + C$.</p>
+            <div class="answer-box">✅ Final Answer: $y^{-2} = x^4(C - 2\ln|x|)$</div>
+        </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q4. Solve: $\frac{dy}{dx} + y\tan x = y^2 \sec x$ given $y(0) = 1$</h4><span class="tag tag-purple">Bernoulli Equation</span></div>
+        <div class="qa-body">
+            <p>Bernoulli equation ($n = 2$). Let $v = y^{-1}$.</p>
+            <p><strong>Step 1:</strong> Divide by $y^2$: $y^{-2} \frac{dy}{dx} + y^{-1}\tan x = \sec x$.</p>
+            <p><strong>Step 2:</strong> Substitute: $-\frac{dv}{dx} + v\tan x = \sec x \implies \frac{dv}{dx} - v\tan x = -\sec x$.</p>
+            <p><strong>Step 3:</strong> IF = $e^{\int -\tan x dx} = \cos x$.</p>
+            <p><strong>Step 4:</strong> $v \cos x = \int -\sec x \cos x dx = \int -1 dx = -x + C$.</p>
+            <p><strong>Step 5:</strong> $\frac{\cos x}{y} = C - x$. Apply $y(0) = 1$: $\frac{1}{1} = C - 0 \implies C = 1$.</p>
+            <div class="answer-box">✅ Final Answer: $y = \frac{\cos x}{1 - x}$</div>
+        </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q5. Solve: $(2xy + y^2)dx + (x^2 + 2xy)dy = 0$</h4><span class="tag tag-red">Exact ODE</span></div>
+        <div class="qa-body">
+            <p>Check for Exactness: $M = 2xy + y^2$, $N = x^2 + 2xy$.</p>
+            <p><strong>Step 1:</strong> $\frac{\partial M}{\partial y} = 2x + 2y$, $\frac{\partial N}{\partial x} = 2x + 2y$. Since equal, it is exact.</p>
+            <p><strong>Step 2:</strong> Integrate $M$ w.r.t $x$: $\int (2xy + y^2) dx = x^2y + xy^2 + g(y)$.</p>
+            <p><strong>Step 3:</strong> Differentiate w.r.t $y$: $x^2 + 2xy + g'(y) = N = x^2 + 2xy$. Thus $g'(y) = 0 \implies g(y) = C$.</p>
+            <div class="answer-box">✅ Final Answer: $x^2y + xy^2 = C$</div>
+        </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q6. Solve: $(y - x)dx + (y + x)dy = 0$</h4><span class="tag tag-red">Exact ODE</span></div>
+        <div class="qa-body">
+            <p>$M = y - x$, $N = y + x$. $\frac{\partial M}{\partial y} = 1$, $\frac{\partial N}{\partial x} = 1$. Exact.</p>
+            <p><strong>Step 1:</strong> $\int M dx = \int (y - x) dx = xy - \frac{x^2}{2} + g(y)$.</p>
+            <p><strong>Step 2:</strong> $\frac{\partial}{\partial y}(xy - \frac{x^2}{2} + g(y)) = x + g'(y) = y + x \implies g'(y) = y \implies g(y) = \frac{y^2}{2}$.</p>
+            <div class="answer-box">✅ Final Answer: $2xy - x^2 + y^2 = C$</div>
+        </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q7. Solve: $(2xy + y)dx + (x^2 + x)dy = 0$</h4><span class="tag tag-red">Exact ODE</span></div>
+        <div class="qa-body">
+            <p>$M = 2xy + y$, $N = x^2 + x$. $\frac{\partial M}{\partial y} = 2x + 1$, $\frac{\partial N}{\partial x} = 2x + 1$. Exact.</p>
+            <p><strong>Step 1:</strong> Integrate $N$ w.r.t $y$: $\int (x^2 + x) dy = x^2y + xy + f(x)$.</p>
+            <p><strong>Step 2:</strong> Differentiate w.r.t $x$: $2xy + y + f'(x) = M = 2xy + y \implies f'(x) = 0$.</p>
+            <div class="answer-box">✅ Final Answer: $x^2y + xy = C$</div>
+        </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q8. Solve: $\frac{dy}{dx} = \frac{x+y}{x-y}$</h4><span class="tag tag-blue">Homogeneous ODE</span></div>
+        <div class="qa-body">
+            <p>Homogeneous equation. Let $y = vx$, then $\frac{dy}{dx} = v + x \frac{dv}{dx}$.</p>
+            <p><strong>Step 1:</strong> $v + x \frac{dv}{dx} = \frac{x+vx}{x-vx} = \frac{1+v}{1-v}$.</p>
+            <p><strong>Step 2:</strong> $x \frac{dv}{dx} = \frac{1+v}{1-v} - v = \frac{1+v^2}{1-v} \implies \frac{1-v}{1+v^2} dv = \frac{dx}{x}$.</p>
+            <p><strong>Step 3:</strong> $\int \frac{1}{1+v^2} dv - \int \frac{v}{1+v^2} dv = \ln|x| + C$.</p>
+            <p><strong>Step 4:</strong> $\arctan(v) - \frac{1}{2}\ln(1+v^2) = \ln|x| + C$.</p>
+            <div class="answer-box">✅ Final Answer: $\arctan(y/x) - \ln\sqrt{x^2+y^2} = C$</div>
+        </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q9. Given $y_1 = x, y_2 = x e^x$, find Wronskian $W(y_1, y_2)$ and test linear independence on $(0, \infty)$.</h4><span class="tag tag-purple">Wronskian</span></div>
+        <div class="qa-body">
+            <p><strong>Step 1:</strong> $W(y_1, y_2) = \begin{vmatrix} x & x e^x \\ 1 & e^x + x e^x \end{vmatrix} = x(e^x + x e^x) - x e^x = x e^x + x^2 e^x - x e^x = x^2 e^x$.</p>
+            <p><strong>Step 2:</strong> Since $x^2 e^x \neq 0$ for all $x \in (0, \infty)$, the functions are linearly independent.</p>
+            <div class="answer-box">✅ Final Answer: $W = x^2 e^x \neq 0$; Functions are Linearly Independent.</div>
+        </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q10. Solve: $\frac{d^2y}{dx^2} - 5\frac{dy}{dx} + 6y = 0, \quad y(0) = 1, \quad y'(0) = 5$.</h4><span class="tag tag-green">Higher-Order ODE</span></div>
+        <div class="qa-body">
+            <p>Characteristic Eq: $r^2 - 5r + 6 = 0 \implies (r-2)(r-3) = 0$. Roots: $r = 2, 3$.</p>
+            <p><strong>Step 1:</strong> $y = c_1 e^{2x} + c_2 e^{3x}$.</p>
+            <p><strong>Step 2:</strong> $y(0) = c_1 + c_2 = 1$.</p>
+            <p><strong>Step 3:</strong> $y' = 2c_1 e^{2x} + 3c_2 e^{3x} \implies y'(0) = 2c_1 + 3c_2 = 5$.</p>
+            <p><strong>Step 4:</strong> Solving: $c_2 = 3, c_1 = -2$.</p>
+            <div class="answer-box">✅ Final Answer: $y = 3e^{3x} - 2e^{2x}$</div>
+        </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q11. Solve: $\frac{d^2y}{dx^2} - 4\frac{dy}{dx} + 4y = 0, \quad y(0) = 0, \quad y'(0) = 0$.</h4><span class="tag tag-green">Higher-Order ODE</span></div>
+        <div class="qa-body">
+            <p>Characteristic Eq: $r^2 - 4r + 4 = 0 \implies (r-2)^2 = 0$. Root: $r = 2$ (Repeated).</p>
+            <p><strong>Step 1:</strong> $y = (c_1 + c_2 x)e^{2x}$.</p>
+            <p><strong>Step 2:</strong> $y(0) = c_1 = 0$.</p>
+            <p><strong>Step 3:</strong> $y' = c_2 e^{2x} + 2(c_1 + c_2 x)e^{2x}$. $y'(0) = c_2 + 2c_1 = 0 \implies c_2 = 0$.</p>
+            <div class="answer-box">✅ Final Answer: $y = 0$ (Trivial Solution)</div>
+        </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qa-block">
+        <div class="qa-header"><h4>Q12. Solve: $\frac{d^2y}{dx^2} + 2\frac{dy}{dx} + 5y = 0, \quad y(0) = 0, \quad y'(0) = 0$.</h4><span class="tag tag-green">Higher-Order ODE</span></div>
+        <div class="qa-body">
+            <p>Characteristic Eq: $r^2 + 2r + 5 = 0$. Roots: $r = \frac{-2 \pm \sqrt{4-20}}{2} = -1 \pm 2i$.</p>
+            <p><strong>Step 1:</strong> $y = e^{-x}(c_1 \cos 2x + c_2 \sin 2x)$.</p>
+            <p><strong>Step 2:</strong> $y(0) = 0 \implies c_1 = 0$.</p>
+            <p><strong>Step 3:</strong> $y'(0) = 0 \implies c_2 = 0$ (following differentiation and evaluation).</p>
+            <div class="answer-box">✅ Final Answer: $y = 0$ (Trivial Solution)</div>
+        </div>
+    </div>
+"""
+
+with open('assignment.html', 'w', encoding='utf-8') as f:
+    f.write(get_base('ODE Assignment Solutions', 'assignment', assign_content))
+
+# Update navigation in all other HTML files
+for file in glob.glob("*.html"):
+    if file == "assignment.html": continue
+    with open(file, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Replace old practice link
+    content = content.replace('<li><a href="practice.html">🎯 Practice &amp; Assignment</a></li>', '<li><a href="practice.html">🎯 Unit 1 &amp; 2 Practice</a></li>')
+    content = content.replace('<li class="active"><a href="practice.html">🎯 Practice &amp; Assignment</a></li>', '<li class="active"><a href="practice.html">🎯 Unit 1 &amp; 2 Practice</a></li>')
+    
+    # Insert new assignment link if not present
+    if 'href="assignment.html"' not in content:
+        content = content.replace('<li><a href="practice.html">🎯 Unit 1 &amp; 2 Practice</a></li>', '<li><a href="practice.html">🎯 Unit 1 &amp; 2 Practice</a></li>\n    <li><a href="assignment.html">🚀 ODE Assignment</a></li>')
+        content = content.replace('<li class="active"><a href="practice.html">🎯 Unit 1 &amp; 2 Practice</a></li>', '<li class="active"><a href="practice.html">🎯 Unit 1 &amp; 2 Practice</a></li>\n    <li><a href="assignment.html">🚀 ODE Assignment</a></li>')
+    
+    with open(file, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+print("assignment.html built and navigation updated successfully.")

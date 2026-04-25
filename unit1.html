@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 1 — Linear Algebra | MAT 223 Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'], ['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea']}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="styles.css">
+<style>
+.main { width: calc(100% - var(--sidebar-w)); overflow-x: hidden; }
+@media (max-width: 900px) { .main { width: 100%; } }
+mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sidebar-logo"><h1>MAT 223 Hub</h1><p>Engineering Mathematics Sem 2</p></div>
+  <div class="nav-section-label">Units</div>
+  <ul class="nav-links">
+    <li class=""><a href="index.html">🏠 Home &amp; Overview</a></li>
+    <li class="active"><a href="unit1.html">📐 Unit 1 — Linear Algebra</a></li>
+    <li class=""><a href="unit2.html">🔄 Unit 2 — Transformations</a></li>
+    <li class=""><a href="unit3.html">📘 Unit 3 — First Order ODE</a></li>
+    <li class=""><a href="unit4.html">📕 Unit 4 — Higher Order ODE</a></li>
+  </ul>
+  <div class="nav-section-label">Practice</div>
+  <ul class="nav-links">
+    <li class=""><a href="cla1.html">📝 CLA I Solutions</a></li>
+    <li class=""><a href="practice.html">🎯 Practice &amp; Assignment</a></li>
+  </ul>
+  <div class="progress-widget">
+    <p>📊 Global Progress</p>
+    <div class="progress-bar"><div class="progress-fill" id="overall-progress"></div></div>
+    <span id="progress-text">0/40 topics done</span>
+    <button class="reset-btn" id="reset-progress">Reset Progress</button>
+  </div>
+</nav>
+<div class="main">
+  <div class="topbar">
+    <div><h2>Unit 1 — Linear Algebra</h2></div>
+    <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+  </div>
+  <div class="page-content">
+
+    <div class="section-label">Unit 1</div>
+    <h1 class="page-title"><span>Linear Algebra</span> Foundations</h1>
+    <p class="page-subtitle">Comprehensive coverage of Matrices, Systems, Determinants, and Vector Spaces.</p>
+
+    <div class="section-label">1. Matrices & Properties</div>
+    <div class="card">
+        <div class="card-title">📦 Algebraic Properties & Special Types</div>
+        <p><strong>Diagonal:</strong> $a_{ij} = 0$ for $i \neq j$. <strong>Scalar:</strong> Diagonal with $a_{ii} = k$. <strong>Identity ($I$):</strong> Scalar with $k=1$.</p>
+        <p><strong>Upper/Lower Triangular:</strong> $a_{ij} = 0$ for $i > j$ / $i < j$.</p>
+        <p><strong>Symmetric:</strong> $A^T = A$. <strong>Skew-Symmetric:</strong> $A^T = -A$ (diagonals must be 0).</p>
+        <p><strong>Idempotent:</strong> $A^2 = A$. <strong>Nilpotent:</strong> $A^k = 0$. <strong>Involutory:</strong> $A^2 = I$. <strong>Orthogonal:</strong> $A^T A = I$.</p>
+        <div class="formula">
+            <strong>Transpose Properties:</strong> $(A^T)^T = A$, $(A+B)^T = A^T+B^T$, $(AB)^T = B^TA^T$
+        </div>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-1"><label>Mastered Special Types of Matrices</label></div>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-2"><label>Mastered Algebraic Properties</label></div>
+    </div>
+
+    <div class="section-label">2. Rank & Echelon Form</div>
+    <div class="card">
+        <div class="card-title">📊 Row Echelon Form (REF) & Rank</div>
+        <p><strong>REF:</strong> 1) All zero rows are at the bottom. 2) Leading entry is strictly to the right of the leading entry above it. 3) Entries below leading entry are zero.</p>
+        <p><strong>Reduced REF (RREF):</strong> REF + 1) Leading entries are 1. 2) Entries above leading entries are zero.</p>
+        <p><strong>Rank(A):</strong> Number of pivots in REF = Dimension of column space = Number of linearly independent rows.</p>
+        <div class="qa-block"><div class="qa-header"><h4>Example: Rank of $A$</h4></div><div class="qa-body">
+            $A = \begin{pmatrix} 1 & 1 & 1 \\ 2 & 0 & 4 \\ 3 & 2 & 4 \\ 0 & 5 & -5 \end{pmatrix}$. $R_2 \to R_2-2R_1$, $R_3 \to R_3-3R_1$ gives $\begin{pmatrix} 1 & 1 & 1 \\ 0 & -2 & 2 \\ 0 & -1 & 1 \\ 0 & 5 & -5 \end{pmatrix}$. Rows 2,3,4 are multiples. RREF has 2 non-zero rows. Rank = 2.
+        </div></div>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-3"><label>Can reduce to REF / RREF</label></div>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-4"><label>Can calculate Rank of a Matrix</label></div>
+    </div>
+
+    <div class="section-label">3. Systems of Linear Equations</div>
+    <div class="card">
+        <div class="card-title">⚙️ Solving $Ax = b$</div>
+        <p><strong>Rouché-Capelli Theorem:</strong> Let $n$ be number of unknowns.</p>
+        <ul>
+            <li><strong>No Solution (Inconsistent):</strong> $Rank(A) < Rank([A|b])$</li>
+            <li><strong>Unique Solution:</strong> $Rank(A) = Rank([A|b]) = n$</li>
+            <li><strong>Infinite Solutions:</strong> $Rank(A) = Rank([A|b]) < n$</li>
+        </ul>
+        <p><strong>Homogeneous Systems ($Ax=0$):</strong> Always consistent (trivial solution $x=0$). Non-trivial solution exists if $Rank(A) < n$ (or $\det(A)=0$).</p>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-5"><label>Mastered Consistency Analysis (Rouché-Capelli)</label></div>
+    </div>
+
+    <div class="section-label">4. Inverse & Elementary Matrices</div>
+    <div class="card">
+        <div class="card-title">🔀 Gauss-Jordan & Elementary Matrices</div>
+        <p><strong>Elementary Matrix $E$:</strong> Obtained from $I$ by a single row operation. $E$ is always invertible.</p>
+        <p><strong>Gauss-Jordan Method:</strong> Augment $[A|I]$, apply row operations to get $[I|A^{-1}]$.</p>
+        <p><strong>Properties of Inverse:</strong> $(A^{-1})^{-1} = A$, $(AB)^{-1} = B^{-1}A^{-1}$, $(A^T)^{-1} = (A^{-1})^T$.</p>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-6"><label>Can calculate inverse using Gauss-Jordan</label></div>
+    </div>
+
+    <div class="section-label">5. Determinants & Cramer's Rule</div>
+    <div class="card">
+        <div class="card-title">🔢 Properties of Determinants</div>
+        <p>$\det(AB)=\det(A)\det(B)$, $\det(A^T)=\det(A)$, $\det(A^{-1})=1/\det(A)$, $\det(cA)=c^n\det(A)$.</p>
+        <p>Row swap: sign change. Add multiple of row: no change. Multiply row by $c$: determinant multiplied by $c$. Identical rows: $\det=0$.</p>
+        <p><strong>Cramer's Rule:</strong> $x_i = \det(A_i) / \det(A)$ for $Ax=b$ where $\det(A) \neq 0$.</p>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-7"><label>Mastered Determinant Properties & Cramer's Rule</label></div>
+    </div>
+
+    <div class="section-label">6. Vector Spaces</div>
+    <div class="card">
+        <div class="card-title">🧭 Subspaces, Independence, Basis</div>
+        <p><strong>Subspace Test:</strong> A subset $W$ is a subspace if it contains 0, is closed under addition, and closed under scalar multiplication.</p>
+        <p><strong>Linear Independence:</strong> $c_1v_1 + ... + c_nv_n = 0 \implies c_1=...=c_n=0$. Or $\det(V) \neq 0$.</p>
+        <p><strong>Span:</strong> Set of all linear combinations. <strong>Basis:</strong> Independent set that spans the space. <strong>Dimension:</strong> Number of vectors in a basis.</p>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-8"><label>Can test for Vector Spaces & Subspaces</label></div>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-9"><label>Can determine Linear Independence & Basis</label></div>
+    </div>
+
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

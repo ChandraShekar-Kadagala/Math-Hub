@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAT 223 Hub — Home | MAT 223 Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'], ['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea']}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="sidebar">
+  <div class="logo">
+    <h1>MAT 223 Hub</h1>
+    <p>FIC 117 · SRM University AP · Sem 2</p>
+  </div>
+  <div class="nav-label">Study Units</div>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠&nbsp;&nbsp;Home &amp; Strategy</a></li>
+    <li><a href="unit1.html">📐&nbsp;&nbsp;Unit 1 — Linear Algebra</a></li>
+    <li><a href="unit2.html">🔄&nbsp;&nbsp;Unit 2 — Transformations</a></li>
+    <li><a href="unit3.html">📘&nbsp;&nbsp;Unit 3 — First Order ODE</a></li>
+    <li><a href="unit4.html">📕&nbsp;&nbsp;Unit 4 — Higher Order ODE</a></li>
+  </ul>
+  <div class="nav-label">Practice &amp; Exams</div>
+  <ul class="nav-links">
+    <li><a href="cla1.html">📝&nbsp;&nbsp;CLA I Solutions</a></li>
+    <li><a href="practice.html">🎯&nbsp;&nbsp;Assignment Q1–Q12</a></li>
+    <li><a href="u1_practice.html">🏋️&nbsp;&nbsp;Unit 1 Practice Sheet</a></li>
+    <li><a href="u2_practice.html">🏋️&nbsp;&nbsp;Unit 2 Practice Sheet</a></li>
+  </ul>
+  <div class="prog-widget">
+    <label>📊 Global Study Progress</label>
+    <div class="prog-bar"><div class="prog-fill" id="overall-progress"></div></div>
+    <span id="progress-text">0 / 48 topics</span>
+    <button class="reset-btn" id="reset-progress">Reset All Progress</button>
+  </div>
+</nav>
+<div class="main">
+<div class="topbar">
+  <div class="topbar-info"><h2>MAT 223 Study Hub</h2><p>Complete Exam Preparation · Units 1–4 · FIC 117</p></div>
+  <button class="theme-btn" id="theme-btn">☀️  Light Mode</button>
+</div>
+<div class="page">
+
+<div class="eyebrow">MAT 223 · FIC 117 · CSE AIML · SRM University AP</div>
+<h1 class="hero">Complete <span>Exam-Ready</span> Study Hub<br>Units 1 to 4</h1>
+<p class="subtitle">All concepts, formulas, PPT content, practice sheet solutions, assignment solutions — organized topic by topic. Verified from your course slides and documents.</p>
+
+<div class="grid-2">
+  <a href="unit1.html" style="text-decoration:none">
+  <div class="card purple" style="cursor:pointer">
+    <div class="card-title">📐 Unit 1 — Linear Algebra (11 hrs)</div>
+    <p>Systems of linear equations, matrix types, rank, echelon forms, determinants, Cramer's rule, vector spaces, subspaces, basis, dimension.</p>
+    <div style="margin-top:.8rem">
+      <span class="tag t-purple">Matrices</span><span class="tag t-blue">Rank</span>
+      <span class="tag t-green">Systems</span><span class="tag t-amber">Vectors</span>
+    </div>
+  </div></a>
+  <a href="unit2.html" style="text-decoration:none">
+  <div class="card blue" style="cursor:pointer">
+    <div class="card-title">🔄 Unit 2 — Transformations &amp; Eigenvalues (11 hrs)</div>
+    <p>Linear transformations, kernel, range, matrix of a transformation, eigenvalues, eigenvectors, diagonalization, similar matrices, symmetric matrices.</p>
+    <div style="margin-top:.8rem">
+      <span class="tag t-blue">Kernel/Range</span><span class="tag t-purple">Eigenvalues</span>
+      <span class="tag t-green">Diagonalization</span>
+    </div>
+  </div></a>
+  <a href="unit3.html" style="text-decoration:none">
+  <div class="card green" style="cursor:pointer">
+    <div class="card-title">📘 Unit 3 — First Order ODEs (8 hrs)</div>
+    <p>Geometric meaning, existence &amp; uniqueness, separable, exact, linear, Bernoulli, homogeneous, IVPs.</p>
+    <div style="margin-top:.8rem">
+      <span class="tag t-green">Separable</span><span class="tag t-blue">Exact</span>
+      <span class="tag t-purple">Bernoulli</span><span class="tag t-red">IVP</span>
+    </div>
+  </div></a>
+  <a href="unit4.html" style="text-decoration:none">
+  <div class="card red" style="cursor:pointer">
+    <div class="card-title">📕 Unit 4 — Higher Order ODEs (8 hrs)</div>
+    <p>Wronskian, constant coefficients (3 cases), Euler-Cauchy, undetermined coefficients, variation of parameters, reduction of order.</p>
+    <div style="margin-top:.8rem">
+      <span class="tag t-red">Wronskian</span><span class="tag t-amber">Euler-Cauchy</span>
+      <span class="tag t-blue">Undetermined Coeffs</span>
+    </div>
+  </div></a>
+</div>
+
+<div class="sec-title">🎯 Exam Strategy — How to Score 100%</div>
+<div class="grid-3">
+  <div class="card">
+    <div class="card-title">Step 1 — Identify Type</div>
+    <p>Before solving, classify the equation. This alone earns marks even if your arithmetic fails. Practice this in the first 30 seconds of reading any question.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Step 2 — Write the Formula</div>
+    <p>Always write the formula you're using: Integrating Factor, Characteristic Equation, Wronskian, Rank condition. Examiners award method marks separately.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Step 3 — Step-by-Step Work</div>
+    <p>Never skip steps. Write each row operation, each integration clearly. Box your final answer. An examiner should follow your working with zero ambiguity.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Step 4 — Apply ICs Last</div>
+    <p>Find the general solution first, then substitute the initial condition. Never forget +C after integration.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Step 5 — Unit 1 &amp; 2 Tips</div>
+    <p>For rank: always reduce to REF. For eigenvalues: always compute det(A−λI)=0 first. For diagonalization: list eigenvectors as columns of P.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Step 6 — Common Errors</div>
+    <p>Forgetting +C · Wrong sign in P(x) · Not checking exactness · Using eˣ instead of xᵐ in Euler-Cauchy · Modification rule for Undetermined Coefficients.</p>
+  </div>
+</div>
+
+<div class="sec-title">📋 Formula Quick Reference</div>
+<div class="card">
+<table class="dt">
+  <thead><tr><th>Topic</th><th>Formula / Rule</th><th>Watch Out For</th></tr></thead>
+  <tbody>
+    <tr><td>System: Unique Sol</td><td>ρ(A) = ρ(A|b) = n</td><td>Check augmented rank, not just A</td></tr>
+    <tr><td>System: Infinite</td><td>ρ(A) = ρ(A|b) &lt; n</td><td>Count free variables = n − rank</td></tr>
+    <tr><td>System: No Solution</td><td>ρ(A) &lt; ρ(A|b)</td><td>Contradictory row like [0 0 | 5]</td></tr>
+    <tr><td>Cramer's Rule</td><td>xᵢ = det(Aᵢ)/det(A)</td><td>Only works when det(A) ≠ 0</td></tr>
+    <tr><td>Exact Test</td><td>∂M/∂y = ∂N/∂x</td><td>Must simplify M, N before testing</td></tr>
+    <tr><td>Linear 1st Order IF</td><td>e^∫P(x)dx</td><td>Wrong sign on P(x) kills answer</td></tr>
+    <tr><td>Bernoulli substitution</td><td>v = y^(1−n)</td><td>Dividing by wrong power of y</td></tr>
+    <tr><td>Wronskian</td><td>W = y₁y₂' − y₂y₁'</td><td>Miscalculating derivatives</td></tr>
+    <tr><td>Char. Equation roots</td><td>ar² + br + c = 0</td><td>Wrong root case (distinct/repeated/complex)</td></tr>
+    <tr><td>Euler-Cauchy</td><td>y = xᵐ → aux eq m(m−1)+am+b=0</td><td>Using eˣ instead of xᵐ</td></tr>
+    <tr><td>Eigenvalues</td><td>det(A−λI) = 0</td><td>Arithmetic errors in 3×3 determinant</td></tr>
+    <tr><td>Diagonalization</td><td>P⁻¹AP = D (eigvecs as cols of P)</td><td>Wrong ordering of eigenvalue/vector pairs</td></tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+</div><!-- /main -->
+<script src="app.js"></script>
+</body>
+</html>

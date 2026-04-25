@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 3 — First Order ODEs | MAT 223 Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'], ['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea']}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="sidebar-logo"><h1>MAT 223 Hub</h1><p>Engineering Mathematics Sem 2</p></div>
+  <div class="nav-section-label">Units</div>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home &amp; Overview</a></li>
+    <li><a href="unit1.html">📐 Unit 1 — Linear Algebra</a></li>
+    <li><a href="unit2.html">🔄 Unit 2 — Transformations</a></li>
+    <li class="active"><a href="unit3.html">📘 Unit 3 — First Order ODE</a></li>
+    <li><a href="unit4.html">📕 Unit 4 — Higher Order ODE</a></li>
+  </ul>
+  <div class="nav-section-label">Practice</div>
+  <ul class="nav-links">
+    <li><a href="cla1.html">📝 CLA I Solutions</a></li>
+    <li><a href="practice.html">🎯 Assignment Solutions</a></li>
+  </ul>
+  <div class="progress-widget">
+    <p>📊 Global Progress</p>
+    <div class="progress-bar"><div class="progress-fill" id="overall-progress"></div></div>
+    <span id="progress-text">0/40 topics done</span>
+    <button class="reset-btn" id="reset-progress">Reset Progress</button>
+  </div>
+</nav>
+
+<div class="main">
+  <div class="topbar">
+    <div><h2>Unit 3 — First Order Differential Equations</h2><p>Separable · Linear · Exact · Bernoulli · Homogeneous · IVPs</p></div>
+    <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+  </div>
+
+  <div class="page-content">
+    <div class="section-label">Unit 3</div>
+    <h1 class="page-title"><span>First Order</span> Differential Equations</h1>
+    <p class="page-subtitle">Learn to identify the type and apply the correct method. Every type has its own pattern — master the pattern, master the marks.</p>
+
+    <!-- TYPE IDENTIFICATION TABLE -->
+    <div class="card" style="margin-bottom:2rem">
+      <div class="card-title">🗺️ Quick Type Identification Chart</div>
+      <table class="data-table">
+        <thead><tr><th>ODE Form</th><th>Type</th><th>Method</th></tr></thead>
+        <tbody>
+          <tr><td>\(\frac{dy}{dx} = g(x)h(y)\)</td><td>Separable</td><td>Separate variables, integrate</td></tr>
+          <tr><td>\(\frac{dy}{dx} + P(x)y = Q(x)\)</td><td>Linear 1st Order</td><td>Integrating Factor \(e^{\int P\,dx}\)</td></tr>
+          <tr><td>\(M\,dx + N\,dy = 0\), \(\partial M/\partial y = \partial N/\partial x\)</td><td>Exact</td><td>Find potential function \(\phi\)</td></tr>
+          <tr><td>\(\frac{dy}{dx} + P(x)y = Q(x)y^n\)</td><td>Bernoulli</td><td>Substitute \(v = y^{1-n}\)</td></tr>
+          <tr><td>\(\frac{dy}{dx} = f(y/x)\)</td><td>Homogeneous</td><td>Substitute \(y = vx\)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===== METHOD 1: SEPARABLE ===== -->
+    <div class="section-label">Method 1</div>
+    <div class="card">
+      <div class="card-title">➗ Variable Separable Equations</div>
+      <div class="formula">
+        <strong>Form:</strong> \(\dfrac{dy}{dx} = g(x) \cdot h(y)\)<br><br>
+        <strong>Method:</strong> Rearrange to \(\dfrac{1}{h(y)}\,dy = g(x)\,dx\), then integrate both sides.
+      </div>
+      <div class="warn-box">⚠️ Don't forget to add <strong>+C</strong> after integration! And check if \(h(y)=0\) gives a constant solution.</div>
+      <div class="card-title" style="margin-top:1rem">Solved — Q2 of Assignment</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(\dfrac{dy}{dx} = \dfrac{y^2+1}{x^2+1}\)</p>
+      <ol class="method-steps">
+        <li>Separate: \(\dfrac{dy}{y^2+1} = \dfrac{dx}{x^2+1}\)</li>
+        <li>Integrate both sides: \(\displaystyle\int\frac{dy}{y^2+1} = \int\frac{dx}{x^2+1}\)</li>
+        <li>\(\arctan(y) = \arctan(x) + C\)</li>
+      </ol>
+      <div class="answer-box">Answer: \(\tan^{-1}(y) - \tan^{-1}(x) = C\)</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u3-separable" id="u3t1"><label for="u3t1">I can identify and solve separable differential equations ✓</label></div>
+    </div>
+
+    <!-- ===== METHOD 2: LINEAR 1ST ORDER ===== -->
+    <div class="section-label">Method 2</div>
+    <div class="card">
+      <div class="card-title">📏 Linear First-Order Equations (Integrating Factor)</div>
+      <div class="formula">
+        <strong>Standard Form:</strong> \(\dfrac{dy}{dx} + P(x)y = Q(x)\)<br><br>
+        <strong>Integrating Factor:</strong> \(IF = e^{\int P(x)\,dx}\)<br><br>
+        <strong>Solution:</strong> \(y \cdot IF = \displaystyle\int Q(x) \cdot IF\,dx + C\)
+      </div>
+      <div class="card-title" style="margin-top:1rem">Solved — Q1 of Assignment</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(\dfrac{dy}{dx} + 2y = e^{-x}\)</p>
+      <ol class="method-steps">
+        <li>Identify: \(P(x) = 2\), \(Q(x) = e^{-x}\)</li>
+        <li>Compute IF: \(IF = e^{\int 2\,dx} = e^{2x}\)</li>
+        <li>Multiply both sides by \(e^{2x}\): \(\dfrac{d}{dx}[y \cdot e^{2x}] = e^{-x} \cdot e^{2x} = e^x\)</li>
+        <li>Integrate: \(y e^{2x} = \int e^x\,dx = e^x + C\)</li>
+        <li>Solve for \(y\): \(y = e^{-x} + Ce^{-2x}\)</li>
+      </ol>
+      <div class="answer-box">Answer: \(y = e^{-x} + Ce^{-2x}\)</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u3-linear" id="u3t2"><label for="u3t2">I can solve linear first-order ODEs using Integrating Factor ✓</label></div>
+    </div>
+
+    <!-- ===== METHOD 3: EXACT ===== -->
+    <div class="section-label">Method 3</div>
+    <div class="card">
+      <div class="card-title">✅ Exact Differential Equations</div>
+      <div class="formula">
+        <strong>Form:</strong> \(M(x,y)\,dx + N(x,y)\,dy = 0\)<br><br>
+        <strong>Test for Exactness:</strong> \(\dfrac{\partial M}{\partial y} = \dfrac{\partial N}{\partial x}\)<br><br>
+        <strong>Solution:</strong> Find \(\phi(x,y)\) such that \(\dfrac{\partial\phi}{\partial x} = M\) and \(\dfrac{\partial\phi}{\partial y} = N\). Then \(\phi(x,y) = C\).
+      </div>
+      <ol class="method-steps">
+        <li>Test: compute \(\partial M/\partial y\) and \(\partial N/\partial x\). If equal → exact.</li>
+        <li>Integrate \(M\) with respect to \(x\): \(\phi = \int M\,dx + g(y)\)</li>
+        <li>Differentiate \(\phi\) w.r.t. \(y\), set equal to \(N\), solve for \(g'(y)\)</li>
+        <li>Integrate to get \(g(y)\). Write final solution \(\phi(x,y)=C\).</li>
+      </ol>
+      <div class="card-title" style="margin-top:1rem">Solved — Q5 of Assignment</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \((2xy+y^2)\,dx + (x^2+2xy)\,dy = 0\)</p>
+      <ol class="method-steps">
+        <li>\(M = 2xy+y^2\), \(N = x^2+2xy\). Check: \(\partial M/\partial y = 2x+2y = \partial N/\partial x\). ✓ Exact.</li>
+        <li>\(\phi = \int(2xy+y^2)\,dx = x^2y + xy^2 + g(y)\)</li>
+        <li>\(\partial\phi/\partial y = x^2+2xy + g'(y) = N = x^2+2xy \Rightarrow g'(y)=0 \Rightarrow g(y)=C\)</li>
+      </ol>
+      <div class="answer-box">Answer: \(x^2y + xy^2 = C\)</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u3-exact" id="u3t3"><label for="u3t3">I can test for exactness and solve exact differential equations ✓</label></div>
+    </div>
+
+    <!-- ===== METHOD 4: BERNOULLI ===== -->
+    <div class="section-label">Method 4</div>
+    <div class="card">
+      <div class="card-title">🔧 Bernoulli Equation — Reduction to Linear</div>
+      <div class="formula">
+        <strong>Form:</strong> \(\dfrac{dy}{dx} + P(x)y = Q(x)y^n\) &nbsp; (\(n \neq 0, 1\))<br><br>
+        <strong>Substitution:</strong> Let \(v = y^{1-n}\), then \(\dfrac{dv}{dx} = (1-n)y^{-n}\dfrac{dy}{dx}\)<br><br>
+        This transforms into a <strong>linear</strong> equation in \(v\).
+      </div>
+      <div class="card-title" style="margin-top:1rem">Solved — Q3 of Assignment</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(\dfrac{dy}{dx} + \dfrac{2}{x}y = x^3 y^3\) &nbsp; (\(n=3\))</p>
+      <ol class="method-steps">
+        <li>Divide by \(y^3\): \(y^{-3}\dfrac{dy}{dx} + \dfrac{2}{x}y^{-2} = x^3\)</li>
+        <li>Let \(v = y^{-2} \Rightarrow \dfrac{dv}{dx} = -2y^{-3}\dfrac{dy}{dx}\). So \(-\dfrac{1}{2}\dfrac{dv}{dx} + \dfrac{2}{x}v = x^3\)</li>
+        <li>Standard form: \(\dfrac{dv}{dx} - \dfrac{4}{x}v = -2x^3\)</li>
+        <li>IF = \(e^{\int -4/x\,dx} = x^{-4}\). Multiply: \(\dfrac{d}{dx}[vx^{-4}] = -2x^{-1}\)</li>
+        <li>Integrate: \(vx^{-4} = -2\ln|x| + C \Rightarrow y^{-2} = x^4(C-2\ln|x|)\)</li>
+      </ol>
+      <div class="answer-box">Answer: \(y^{-2} = x^4(C - 2\ln|x|)\)</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u3-bernoulli" id="u3t4"><label for="u3t4">I can solve Bernoulli equations using the substitution method ✓</label></div>
+    </div>
+
+    <!-- ===== METHOD 5: HOMOGENEOUS ===== -->
+    <div class="section-label">Method 5</div>
+    <div class="card">
+      <div class="card-title">🔁 Homogeneous First-Order Equations</div>
+      <div class="formula">
+        <strong>Form:</strong> \(\dfrac{dy}{dx} = f\!\left(\dfrac{y}{x}\right)\)<br><br>
+        <strong>Substitution:</strong> Let \(y = vx \Rightarrow \dfrac{dy}{dx} = v + x\dfrac{dv}{dx}\)<br><br>
+        Equation becomes separable in \(v\) and \(x\).
+      </div>
+      <div class="card-title" style="margin-top:1rem">Solved — Q8 of Assignment</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(\dfrac{dy}{dx} = \dfrac{x+y}{x-y}\)</p>
+      <ol class="method-steps">
+        <li>Let \(y=vx\): \(v + x\dfrac{dv}{dx} = \dfrac{1+v}{1-v}\)</li>
+        <li>\(x\dfrac{dv}{dx} = \dfrac{1+v}{1-v} - v = \dfrac{1+v^2}{1-v}\)</li>
+        <li>Separate: \(\dfrac{1-v}{1+v^2}\,dv = \dfrac{dx}{x}\)</li>
+        <li>\(\int\dfrac{1}{1+v^2}\,dv - \int\dfrac{v}{1+v^2}\,dv = \int\dfrac{dx}{x}\)</li>
+        <li>\(\arctan(v) - \tfrac{1}{2}\ln(1+v^2) = \ln|x| + C\)</li>
+        <li>Back-substitute \(v = y/x\): \(\arctan(y/x) - \tfrac{1}{2}\ln\!\left(\dfrac{x^2+y^2}{x^2}\right) = \ln|x| + C\)</li>
+      </ol>
+      <div class="answer-box">Answer: \(\tan^{-1}(y/x) - \ln\sqrt{x^2+y^2} = C\)</div>
+
+      <!-- IVP -->
+      <div class="card-title" style="margin-top:1.5rem">Initial Value Problems (IVP) — Solved Q4</div>
+      <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(\dfrac{dy}{dx} + y\tan x = y^2\sec x\), &nbsp; \(y(0) = 1\)</p>
+      <ol class="method-steps">
+        <li>Bernoulli with \(n=2\). Let \(v = y^{-1}\). Equation becomes: \(\dfrac{dv}{dx} - v\tan x = -\sec x\)</li>
+        <li>IF = \(e^{\int -\tan x\,dx} = \cos x\). Multiply through: \(\dfrac{d}{dx}[v\cos x] = -\sec x\cos x = -1\)</li>
+        <li>Integrate: \(v\cos x = -x + C\). So \(\dfrac{\cos x}{y} = C - x\).</li>
+        <li>Apply IC \(y(0)=1\): \(\dfrac{1}{1} = C - 0 \Rightarrow C = 1\).</li>
+      </ol>
+      <div class="answer-box">Answer: \(y = \dfrac{\cos x}{1-x}\)</div>
+      <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u3-ivp" id="u3t5"><label for="u3t5">I can solve homogeneous ODEs and IVPs ✓</label></div>
+    </div>
+
+    <!-- ===== EXISTENCE & UNIQUENESS ===== -->
+    <div class="section-label">Theory</div>
+    <div class="card">
+      <div class="card-title">📖 Existence &amp; Uniqueness Theorem (Picard's)</div>
+      <p style="margin-bottom:1rem">For the IVP: \(\dfrac{dy}{dx} = f(x,y)\), \(y(x_0)=y_0\)</p>
+      <div class="card-grid" style="margin-bottom:0">
+        <div>
+          <p style="font-weight:700;color:var(--green);margin-bottom:.5rem">Existence</p>
+          <p style="font-size:.9rem;color:var(--muted)">If \(f(x,y)\) is continuous in a rectangle around \((x_0,y_0)\), then at least one solution exists.</p>
+        </div>
+        <div>
+          <p style="font-weight:700;color:var(--accent2);margin-bottom:.5rem">Uniqueness</p>
+          <p style="font-size:.9rem;color:var(--muted)">If additionally \(\dfrac{\partial f}{\partial y}\) is continuous, then the solution is unique.</p>
+        </div>
+      </div>
+      <div class="check-item" style="margin-top:1rem"><input type="checkbox" class="syllabus-check" data-id="u3-theory" id="u3t6"><label for="u3t6">I can apply existence and uniqueness theorem to IVPs ✓</label></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

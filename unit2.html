@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 2 — Transformations | MAT 223 Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'], ['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea']}}</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="styles.css">
+<style>
+.main { width: calc(100% - var(--sidebar-w)); overflow-x: hidden; }
+@media (max-width: 900px) { .main { width: 100%; } }
+mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+<nav class="sidebar">
+  <div class="sidebar-logo"><h1>MAT 223 Hub</h1><p>Engineering Mathematics Sem 2</p></div>
+  <div class="nav-section-label">Units</div>
+  <ul class="nav-links">
+    <li class=""><a href="index.html">🏠 Home &amp; Overview</a></li>
+    <li class=""><a href="unit1.html">📐 Unit 1 — Linear Algebra</a></li>
+    <li class="active"><a href="unit2.html">🔄 Unit 2 — Transformations</a></li>
+    <li class=""><a href="unit3.html">📘 Unit 3 — First Order ODE</a></li>
+    <li class=""><a href="unit4.html">📕 Unit 4 — Higher Order ODE</a></li>
+  </ul>
+  <div class="nav-section-label">Practice</div>
+  <ul class="nav-links">
+    <li class=""><a href="cla1.html">📝 CLA I Solutions</a></li>
+    <li class=""><a href="practice.html">🎯 Practice &amp; Assignment</a></li>
+  </ul>
+  <div class="progress-widget">
+    <p>📊 Global Progress</p>
+    <div class="progress-bar"><div class="progress-fill" id="overall-progress"></div></div>
+    <span id="progress-text">0/40 topics done</span>
+    <button class="reset-btn" id="reset-progress">Reset Progress</button>
+  </div>
+</nav>
+<div class="main">
+  <div class="topbar">
+    <div><h2>Unit 2 — Transformations</h2></div>
+    <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+  </div>
+  <div class="page-content">
+
+    <div class="section-label">Unit 2</div>
+    <h1 class="page-title"><span>Transformations</span> & Eigenvalues</h1>
+    <p class="page-subtitle">Comprehensive coverage of Linear Mappings, Kernel, Eigenvalues, and Diagonalization.</p>
+
+    <div class="section-label">1. Linear Transformations</div>
+    <div class="card">
+        <div class="card-title">🔄 Definitions & Properties</div>
+        <p>A mapping $T: V \to W$ is linear if $T(u+v) = T(u) + T(v)$ and $T(cu) = cT(u)$. Implies $T(0) = 0$.</p>
+        <p>Every matrix defines a linear transformation $T(x) = Ax$.</p>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u2-1"><label>Mastered Linear Transformation definitions</label></div>
+    </div>
+
+    <div class="section-label">2. Kernel and Range</div>
+    <div class="card">
+        <div class="card-title">🎯 Nullity and Rank</div>
+        <p><strong>Kernel $\text{Ker}(T)$:</strong> Set of $v \in V$ such that $T(v) = 0$. Solved by finding Null Space of matrix $A$ ($Ax=0$).</p>
+        <p><strong>Range $\text{Range}(T)$:</strong> Set of $T(v)$ for $v \in V$. Spanned by columns of $A$.</p>
+        <div class="formula">
+            <strong>Rank-Nullity Theorem:</strong> $\text{dim}(\text{Ker}(T)) + \text{dim}(\text{Range}(T)) = \text{dim}(V)$
+        </div>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u2-2"><label>Can calculate Kernel and Range</label></div>
+    </div>
+
+    <div class="section-label">3. Eigenvalues & Eigenvectors</div>
+    <div class="card">
+        <div class="card-title">📈 Finding $\lambda$ and $v$</div>
+        <p><strong>Equation:</strong> $Av = \lambda v$ for $v \neq 0$.</p>
+        <p><strong>Characteristic Equation:</strong> $\det(A - \lambda I) = 0$. Solve for eigenvalues $\lambda$.</p>
+        <p><strong>Eigenvectors:</strong> For each $\lambda$, solve $(A - \lambda I)v = 0$ to find the basis of the eigenspace.</p>
+        <p><strong>Properties:</strong> Sum of eigenvalues = Trace(A). Product of eigenvalues = $\det(A)$. Eigenvalues of $A^k$ are $\lambda^k$.</p>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u2-3"><label>Can calculate Eigenvalues & Eigenvectors</label></div>
+    </div>
+
+    <div class="section-label">4. Diagonalization & Similar Matrices</div>
+    <div class="card">
+        <div class="card-title">⬜ $P^{-1}AP = D$</div>
+        <p><strong>Similar Matrices:</strong> $A$ is similar to $B$ if $P^{-1}AP = B$. Similar matrices have same eigenvalues, trace, and determinant.</p>
+        <p><strong>Diagonalization:</strong> $A$ is diagonalizable if it has $n$ linearly independent eigenvectors (Geometric Multiplicity = Algebraic Multiplicity for all $\lambda$).</p>
+        <p><strong>Method:</strong> $D$ has eigenvalues on diagonal. $P$ has eigenvectors as columns. Then $A = PDP^{-1}$.</p>
+        <p><strong>Symmetric Matrices:</strong> Always diagonalizable. Eigenvectors for distinct eigenvalues are orthogonal. $P$ can be made orthogonal ($P^T = P^{-1}$).</p>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u2-4"><label>Mastered Diagonalization technique</label></div>
+    </div>
+
+    <div class="section-label">5. Advanced Decompositions</div>
+    <div class="card">
+        <div class="card-title">✨ Spectral & Singular Value Decomposition (SVD)</div>
+        <p><strong>Spectral Decomposition:</strong> For a symmetric matrix $A$, it can be decomposed as $A = \lambda_1 u_1 u_1^T + \lambda_2 u_2 u_2^T + \dots + \lambda_n u_n u_n^T$, where $\lambda_i$ are eigenvalues and $u_i$ are normalized orthogonal eigenvectors.</p>
+        <p><strong>Singular Value Decomposition (SVD):</strong> Any $m \times n$ matrix $A$ can be factored as $A = U \Sigma V^T$.</p>
+        <ul>
+            <li>$U$ is an $m \times m$ orthogonal matrix (Left singular vectors, eigenvectors of $AA^T$).</li>
+            <li>$V$ is an $n \times n$ orthogonal matrix (Right singular vectors, eigenvectors of $A^TA$).</li>
+            <li>$\Sigma$ is an $m \times n$ diagonal matrix of singular values $\sigma_i = \sqrt{\lambda_i}$, where $\lambda_i$ are non-zero eigenvalues of $A^TA$.</li>
+        </ul>
+        <div class="formula">
+            <strong>Key insight:</strong> SVD generalizes diagonalization to non-square matrices and is a fundamental tool for data compression and PCA.
+        </div>
+        <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u2-5"><label>Understands SVD and Spectral Decomposition</label></div>
+    </div>
+
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
