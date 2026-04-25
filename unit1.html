@@ -86,8 +86,8 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: 
         <p><strong>REF:</strong> 1) All zero rows are at the bottom. 2) Leading entry is strictly to the right of the leading entry above it. 3) Entries below leading entry are zero.</p>
         <p><strong>Reduced REF (RREF):</strong> REF + 1) Leading entries are 1. 2) Entries above leading entries are zero.</p>
         <p><strong>Rank(A):</strong> Number of pivots in REF = Dimension of column space = Number of linearly independent rows.</p>
-        <div class="qa-block"><div class="qa-header"><h4>Example: Rank of $A$</h4></div><div class="qa-body">
-            $A = \begin{pmatrix} 1 & 1 & 1 \\ 2 & 0 & 4 \\ 3 & 2 & 4 \\ 0 & 5 & -5 \end{pmatrix}\]. $R_2 \to R_2-2R_1$, $R_3 \to R_3-3R_1$ gives \[\begin{pmatrix} 1 & 1 & 1 \\ 0 & -2 & 2 \\ 0 & -1 & 1 \\ 0 & 5 & -5 \end{pmatrix}\]. Rows 2,3,4 are multiples. RREF has 2 non-zero rows. Rank = 2.
+        <div class="qa-block"><div class="qa-header"><h4>Example: Rank of $A\[</h4></div><div class="qa-body">
+            \[A = \begin{pmatrix} 1 & 1 & 1 \\ 2 & 0 & 4 \\ 3 & 2 & 4 \\ 0 & 5 & -5 \end{pmatrix}\]. \]R_2 \to R_2-2R_1$, \[R_3 \to R_3-3R_1\[ gives \[\begin{pmatrix} 1 & 1 & 1 \\ 0 & -2 & 2 \\ 0 & -1 & 1 \\ 0 & 5 & -5 \end{pmatrix}\]. Rows 2,3,4 are multiples. RREF has 2 non-zero rows. Rank = 2.
         </div></div>
         <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-3"><label>Can reduce to REF / RREF</label></div>
         <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u1-4"><label>Can calculate Rank of a Matrix</label></div>
@@ -95,7 +95,7 @@ mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: 
 
     <div class="section-label">3. Systems of Linear Equations</div>
     <div class="card">
-        <div class="card-title">⚙️ Solving $Ax = b$</div>
+        <div class="card-title">⚙️ Solving \]Ax = b$</div>
         <p><strong>Rouché-Capelli Theorem:</strong> Let $n$ be number of unknowns.</p>
         <ul>
             <li><strong>No Solution (Inconsistent):</strong> $Rank(A) < Rank([A|b])$</li>
