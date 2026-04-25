@@ -78,7 +78,8 @@
         <strong>Characteristic Equation:</strong> \(ar^2 + br + c = 0\)<br>
         Solve for \(r\) using the quadratic formula.
       </div>
-      <table class="data-table" style="margin-top:1rem">
+      <div class="table-responsive">
+<table class="data-table" style="margin-top:1rem">
         <thead><tr><th>Roots</th><th>General Solution</th></tr></thead>
         <tbody>
           <tr><td>Real &amp; Distinct: \(r_1 \neq r_2\)</td><td>\(y = c_1 e^{r_1 x} + c_2 e^{r_2 x}\)</td></tr>
@@ -86,6 +87,7 @@
           <tr><td>Complex: \(r = \alpha \pm i\beta\)</td><td>\(y = e^{\alpha x}(c_1\cos\beta x + c_2\sin\beta x)\)</td></tr>
         </tbody>
       </table>
+</div>
       <div class="card-title" style="margin-top:1rem">Solved — Q10 of Assignment (Distinct Roots + IVP)</div>
       <p style="font-size:.95rem;margin-bottom:.75rem">Solve: \(y'' - 5y' + 6y = 0\), &nbsp; \(y(0)=1,\; y'(0)=5\)</p>
       <ol class="method-steps">
@@ -126,7 +128,8 @@
         <strong>Form:</strong> \(x^2 y'' + axy' + by = 0\) &nbsp; (non-constant coefficients, but pattern!)<br><br>
         <strong>Substitution:</strong> Assume \(y = x^m\). This gives \(m(m-1) + am + b = 0\) (Auxiliary Equation).
       </div>
-      <table class="data-table" style="margin-top:1rem">
+      <div class="table-responsive">
+<table class="data-table" style="margin-top:1rem">
         <thead><tr><th>Roots</th><th>General Solution</th></tr></thead>
         <tbody>
           <tr><td>Real &amp; Distinct: \(m_1 \neq m_2\)</td><td>\(y = c_1 x^{m_1} + c_2 x^{m_2}\)</td></tr>
@@ -134,6 +137,7 @@
           <tr><td>Complex: \(m = \alpha \pm i\beta\)</td><td>\(y = x^\alpha[c_1\cos(\beta\ln x)+c_2\sin(\beta\ln x)]\)</td></tr>
         </tbody>
       </table>
+</div>
       <div class="warn-box" style="margin-top:1rem">⚠️ Common Mistake: Using \(e^{rx}\) instead of \(x^m\) for Euler-Cauchy. The form is \(y=x^m\), NOT \(y=e^{rx}\)!</div>
       <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u4-euler" id="u4t3"><label for="u4t3">I can solve Euler-Cauchy equations for all three root cases ✓</label></div>
     </div>
@@ -143,7 +147,8 @@
     <div class="card">
       <div class="card-title">🎲 Method of Undetermined Coefficients</div>
       <p style="margin-bottom:1rem">Used for <strong>non-homogeneous</strong> equations \(ay''+by'+cy = g(x)\). First solve the homogeneous part, then guess \(y_p\).</p>
-      <table class="data-table">
+      <div class="table-responsive">
+<table class="data-table">
         <thead><tr><th>Right-Hand Side \(g(x)\)</th><th>Guess for \(y_p\)</th></tr></thead>
         <tbody>
           <tr><td>\(e^{ax}\)</td><td>\(Ae^{ax}\)</td></tr>
@@ -152,6 +157,7 @@
           <tr><td>\(xe^{ax}\)</td><td>\((Ax+B)e^{ax}\)</td></tr>
         </tbody>
       </table>
+</div>
       <div class="warn-box" style="margin-top:1rem">⚠️ <strong>Modification Rule:</strong> If your guess is already in the complementary solution \(y_c\), multiply your guess by \(x\). If it's still there, multiply by \(x^2\).</div>
       <div class="check-item"><input type="checkbox" class="syllabus-check" data-id="u4-undetermined" id="u4t4"><label for="u4t4">I can apply undetermined coefficients including the modification rule ✓</label></div>
     </div>
