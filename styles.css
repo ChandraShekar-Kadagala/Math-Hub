@@ -404,3 +404,98 @@ h1.hero span {
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
 [data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); }
 [data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
+
+/* ── 30-Year Expert Level Upgrades ── */
+
+/* Active Recall Mode (Blur answers) */
+body.active-recall-mode .qa-body {
+  filter: blur(8px);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+body.active-recall-mode .qa-body:hover {
+  filter: blur(4px);
+  opacity: 0.9;
+}
+body.active-recall-mode .qa-body.revealed {
+  filter: blur(0);
+  opacity: 1;
+  cursor: default;
+  user-select: auto;
+}
+
+/* Study Timer Widget */
+.timer-widget {
+  margin: 0.75rem;
+  background: linear-gradient(135deg, rgba(124,109,250,0.1), rgba(56,189,248,0.1));
+  border: 1px solid rgba(124,109,250,0.3);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+}
+.timer-display {
+  font-size: 2rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent2);
+  margin: 0.5rem 0;
+  text-shadow: var(--glow);
+}
+.timer-controls button {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 0 4px;
+}
+.timer-controls button:hover { background: var(--accent); color: white; }
+
+/* Scroll to Top FAB */
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.fab.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.fab:hover { transform: translateY(-3px) scale(1.05); }
+
+/* Topbar utility buttons container */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Print Styles (Ctrl+P to get clean PDF) */
+@media print {
+  .sidebar, .topbar, .theme-btn, .menu-btn, .fab, .progress-widget, .timer-widget { display: none !important; }
+  .main { margin: 0 !important; width: 100% !important; background: white !important; color: black !important; }
+  body { background: white !important; color: black !important; }
+  .card, .qa-block { border: 1px solid #ccc !important; break-inside: avoid; background: white !important; box-shadow: none !important; }
+  * { color: black !important; -webkit-text-fill-color: black !important; }
+  .page-title span { background: none !important; color: black !important; }
+  mjx-container { overflow: visible !important; }
+}

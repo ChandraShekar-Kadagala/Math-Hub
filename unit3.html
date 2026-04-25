@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#7c6dfa">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unit 3 — First Order ODEs | MAT 223 Hub</title>
@@ -33,13 +35,22 @@
     <span id="progress-text">0/40 topics done</span>
     <button class="reset-btn" id="reset-progress">Reset Progress</button>
   </div>
+
+  <div class="timer-widget">
+    <p>⏱️ Pomodoro Timer</p>
+    <div class="timer-display"><span id="t-min">25</span>:<span id="t-sec">00</span></div>
+    <div class="timer-controls">
+      <button id="t-play">▶️</button>
+      <button id="t-reset">🔄</button>
+    </div>
+  </div>
 </nav>
 
 <div class="main">
   <div class="topbar">
     <div><h2>Unit 3 — First Order Differential Equations</h2><p>Separable · Linear · Exact · Bernoulli · Homogeneous · IVPs</p></div>
-    <button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
-    <button class="menu-btn" id="menu-btn" style="margin-left:10px; background:var(--surface2); color:var(--text); border:1px solid var(--border); padding:0.55rem 1rem; border-radius:99px; font-weight:600; cursor:pointer; display:none;">☰ Menu</button>
+    <div class="topbar-actions"><button class="theme-btn" id="recall-btn" style="margin-right:10px;">🧠 Recall: OFF</button><button class="theme-btn" id="theme-btn">☀️ Light Mode</button>
+    <button class="menu-btn" id="menu-btn" style="margin-left:10px; background:var(--surface2); color:var(--text); border:1px solid var(--border); padding:0.55rem 1rem; border-radius:99px; font-weight:600; cursor:pointer; display:none;">☰ Menu</button></div>
   </div>
 
   <div class="page-content">
